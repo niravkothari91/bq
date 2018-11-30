@@ -48,9 +48,9 @@
 
                 </div> <!-- end hero -->--}}
                 <div class="home-page-carousel">
-                    <img src="{{asset('img/blog1.png')}}"/>
-                    <img src="{{asset('img/blog2.png')}}"/>
-                    <img src="{{asset('img/blog3.png')}}"/>
+                    @foreach($carouselImages as $image)
+                        <img src="{{asset('img/'.$image->url)}}"/>
+                    @endforeach
                 </div>
             </header>
 

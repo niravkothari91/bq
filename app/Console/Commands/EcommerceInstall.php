@@ -134,6 +134,11 @@ class EcommerceInstall extends Command
             '--force' => true,
         ]);
 
+        $this->call('db:seed', [
+            '--class' => 'CarouselImagesTableSeeder',
+            '--force' => true,
+        ]);
+
         try {
             $this->call('scout:clear', [
                 'model' => 'App\\Product',
