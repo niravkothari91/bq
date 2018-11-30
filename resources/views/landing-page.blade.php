@@ -5,11 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Ecommerce Example</title>
+        <title>BarQualified - It's right in the name!</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Slick CSS for Carousel -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -28,7 +32,7 @@
                         @include('partials.menus.main-right')
                     </div>
                 </div> <!-- end top-nav -->
-                <div class="hero container">
+                {{--<div class="hero container">
                     <div class="hero-copy">
                         <h1>Laravel Ecommerce Demo</h1>
                         <p>Includes multiple products, categories, a shopping cart and a checkout system with Stripe integration.</p>
@@ -41,13 +45,19 @@
                     <div class="hero-image">
                         <img src="img/macbook-pro-laravel.png" alt="hero image">
                     </div> <!-- end hero-image -->
-                </div> <!-- end hero -->
+
+                </div> <!-- end hero -->--}}
+                <div class="home-page-carousel">
+                    <img src="{{asset('img/blog1.png')}}"/>
+                    <img src="{{asset('img/blog2.png')}}"/>
+                    <img src="{{asset('img/blog3.png')}}"/>
+                </div>
             </header>
 
             <div class="featured-section">
 
                 <div class="container">
-                    <h1 class="text-center">Laravel Ecommerce</h1>
+                    <h1 class="text-center">BarQualified</h1>
 
                     <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>
 
@@ -90,5 +100,19 @@
 
         </div> <!-- end #app -->
         <script src="js/app.js"></script>
+
+        <!-- Slick JS for Carousel -->
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.home-page-carousel').slick({
+                    dots: true,
+                    arrows: true,
+                    autoplay: true,
+                    pauseOnHover: true,
+                    pauseOnFocus: true
+                });
+            });
+        </script>
     </body>
 </html>
