@@ -18,12 +18,22 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
     </head>
     <body>
         <div id="app">
             <header class="with-background">
-                <div class="top-nav container">
+                <div class="topnav" id="myTopnav">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                {{--<div class="top-nav container">
                     <div class="top-nav-left">
                         <div class="logo">Ecommerce</div>
                         {{ menu('main', 'partials.menus.main') }}
@@ -31,7 +41,7 @@
                     <div class="top-nav-right">
                         @include('partials.menus.main-right')
                     </div>
-                </div> <!-- end top-nav -->
+                </div> <!-- end top-nav -->--}}
                 {{--<div class="hero container">
                     <div class="hero-copy">
                         <h1>Laravel Ecommerce Demo</h1>
@@ -100,6 +110,7 @@
 
         </div> <!-- end #app -->
         <script src="js/app.js"></script>
+        <script src="js/main.js"></script>
 
         <!-- Slick JS for Carousel -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
