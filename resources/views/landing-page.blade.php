@@ -49,7 +49,7 @@
                 </div> <!-- end hero -->--}}
                 <div class="home-page-carousel">
                     @foreach($carouselImages as $image)
-                        <img src="{{asset('img/'.$image->url)}}"/>
+                        <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}"/></a>
                     @endforeach
                 </div>
             </header>
