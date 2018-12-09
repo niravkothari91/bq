@@ -16,6 +16,7 @@ class CreateCarouselImagesTable extends Migration
         Schema::create('carousel_images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url')->unique();
+            $table->string('page_link');
             $table->integer('order')->unique();
             $table->boolean('is_active')->default(true);
             $table->timestamps();

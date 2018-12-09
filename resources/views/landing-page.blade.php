@@ -59,7 +59,7 @@
                 </div> <!-- end hero -->--}}
                 <div class="home-page-carousel">
                     @foreach($carouselImages as $image)
-                        <img src="{{asset('img/'.$image->url)}}"/>
+                        <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}"/></a>
                     @endforeach
                 </div>
             </header>
@@ -118,7 +118,7 @@
             $(document).ready(function(){
                 $('.home-page-carousel').slick({
                     dots: true,
-                    arrows: true,
+                    arrows: false,
                     autoplay: true,
                     pauseOnHover: true,
                     pauseOnFocus: true
