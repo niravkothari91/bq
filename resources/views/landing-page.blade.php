@@ -28,8 +28,8 @@
     <body>
         <div id="app">
             <header class="with-background">
-                <div class="container">
-                    <nav class="navbar navbar-default">
+                <div>
+                    <nav class="navbar navbar-default" style="border-radius: 0px">
                         <div class="navbar-header">
                             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
@@ -37,17 +37,17 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">MegaMenu</a>
+                            <a class="navbar-brand" href="#">BarQualified</a>
                         </div>
 
 
                         <div class="collapse navbar-collapse js-navbar-collapse">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown mega-dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category1 <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
 
                                     <ul class="dropdown-menu mega-dropdown-menu row">
-                                        <li class="col-sm-3">
+                                        {{--<li class="col-sm-3">
                                             <ul>
                                                 <li class="dropdown-header">New in Stores</li>
                                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -80,7 +80,7 @@
                                                 <li class="divider"></li>
                                                 <li><a href="#">View all Collection <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                                             </ul>
-                                        </li>
+                                        </li>--}}
                                         <li class="col-sm-3">
                                             <ul>
                                                 <li class="dropdown-header">Dresses</li>
