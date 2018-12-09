@@ -107,7 +107,7 @@
             $(document).ready(function(){
                 $('.home-page-carousel').slick({
                     dots: true,
-                    arrows: true,
+                    arrows: false,
                     autoplay: true,
                     pauseOnHover: true,
                     pauseOnFocus: true
