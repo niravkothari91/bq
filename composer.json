@@ -17,6 +17,7 @@
         "laravel/framework": "5.6.*",
         "laravel/scout": "^4.0",
         "laravel/tinker": "~1.0",
+        "lavary/laravel-menu": "^1.7",
         "nicolaslopezj/searchable": "^1.9",
         "tcg/voyager": "1.1.*"
     },

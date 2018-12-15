@@ -18,7 +18,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+        {{--<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">--}}
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -27,16 +27,17 @@
     </head>
     <body>
         <div id="app">
-            <header class="with-background">
 
-                {{--<div class="top-nav container">
+            <header class="with-background">
+                {!! $MyNavBar->asUl() !!}
+               {{-- <div class="top-nav container">
                     <div class="top-nav-left">
                         <div class="logo">Ecommerce</div>
                         {{ menu('main', 'partials.menus.main') }}
                     </div>
-                    <div class="top-nav-right">
+                    --}}{{--<div class="top-nav-right">
                         @include('partials.menus.main-right')
-                    </div>
+                    </div>--}}{{--
                 </div> <!-- end top-nav -->--}}
                 {{--<div class="hero container">
                     <div class="hero-copy">
