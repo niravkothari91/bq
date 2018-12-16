@@ -1,4 +1,4 @@
-<ul>
+{{--<ul>
     @foreach($items as $menu_item)
         <li>
             <a href="{{ $menu_item->link() }}">
@@ -11,8 +11,7 @@
             </a>
         </li>
     @endforeach
-</ul>
-{{--
+</ul>--}}
 <div>
     <nav class="navbar navbar-default" style="border-radius: 0px">
         <div class="navbar-header">
@@ -25,7 +24,8 @@
             <a class="navbar-brand" href="#">BarQualified</a>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse">
-            @foreach($categories as $category)
+            {!! $MyNavBar->asUl() !!}
+            {{--@foreach($categories as $category)
                 <ul class="nav navbar-nav">
                     <li class="dropdown mega-dropdown">
                         @if($category->page_link)
@@ -51,9 +51,8 @@
                         </ul>
                     </li>
                 </ul>
-            @endforeach
+            @endforeach--}}
         </div>
         <!-- /.nav-collapse -->
     </nav>
 </div>
---}}

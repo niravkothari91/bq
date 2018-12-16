@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Category;
 use Closure;
 use Lavary\Menu\Menu;
 
@@ -16,20 +17,16 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-        if(!Menu::exists('MyNavBar')) {
-            Menu::make('MyNavBar', function ($menu) {
-                $menu->add('Bar Tools')
-                ->add('Bar Sets & Package Specials')
-                ->add('Bartending Bottle Openers')
-                ->add()
-                ->add()
-                ->add()
-                ->add()
-                ->add()
-                ->add();
-                $menu->add('Bar Supplies', 'about');
-                $menu->add('Bar Equipment', 'services');
+        $parentCategories = Category::all();
+        if($parentCategories != null && $parentCategories->count() > 0) {
+            $navbar = new Menu();
+            $navbar->make('MyNavBar', function ($menu) use ($parentCategories) {
+                foreach($parentCategories as $category_item) {
+                    $menu->add($category_item->name, ['url' => $category_item->slug, 'class' => 'nav navbar-nav']);
+                }
             });
+        } else {
+            dd("Menu Items not found. Please make sure the seeders ran properly");
         }
         return $next($request);
     }

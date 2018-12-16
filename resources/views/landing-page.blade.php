@@ -29,16 +29,15 @@
         <div id="app">
 
             <header class="with-background">
-                {!! $MyNavBar->asUl() !!}
-               {{-- <div class="top-nav container">
+
+                <div class="top-nav container">
                     <div class="top-nav-left">
-                        <div class="logo">Ecommerce</div>
-                        {{ menu('main', 'partials.menus.main') }}
+                        @include('partials.menus.main')
                     </div>
-                    --}}{{--<div class="top-nav-right">
+                    {{--<div class="top-nav-right">
                         @include('partials.menus.main-right')
-                    </div>--}}{{--
-                </div> <!-- end top-nav -->--}}
+                    </div>--}}
+                </div> <!-- end top-nav -->
                 {{--<div class="hero container">
                     <div class="hero-copy">
                         <h1>Laravel Ecommerce Demo</h1>

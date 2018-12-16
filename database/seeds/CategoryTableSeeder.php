@@ -16,13 +16,12 @@ class CategoryTableSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
 
         Category::insert([
-            ['name' => 'Laptops', 'slug' => 'laptops', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Desktops', 'slug' => 'desktops', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Mobile Phones', 'slug' => 'mobile-phones', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Tablets', 'slug' => 'tablets', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'TVs', 'slug' => 'tvs', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Digital Cameras', 'slug' => 'digital-cameras', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Appliances', 'slug' => 'appliances', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bar Tools', 'slug' => 'bar-tools', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bar Supplies', 'slug' => 'bar-supplies', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Bar Equipment', 'slug' => 'bar-equipment', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Beer & Wine', 'slug' => 'beer-wine', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Kitchen, Dinning & Service', 'slug' => 'kitchen-dinning-service', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'Home Bar & Gifts', 'slug' => 'home-bar-gifts', 'created_at' => $now, 'updated_at' => $now],
         ]);
     }
 }
