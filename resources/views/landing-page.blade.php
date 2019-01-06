@@ -20,24 +20,35 @@
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
         {{--<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">--}}
 
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     </head>
     <body>
         <div id="app">
 
             <header class="with-background">
-
-                <div class="top-nav container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">BarQualified</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            @include('partials.menus.main', ['items' => $MyNavBar->roots()])
+                        </ul>
+                    </div>
+                </nav><!--/nav-->
+                {{--<div class="top-nav container">
                     <div class="top-nav-left">
                         @include('partials.menus.main')
                     </div>
-                    {{--<div class="top-nav-right">
+                    <div class="top-nav-right">
                         @include('partials.menus.main-right')
-                    </div>--}}
-                </div> <!-- end top-nav -->
+                    </div>
+                </div> <!-- end top-nav -->--}}
                 {{--<div class="hero container">
                     <div class="hero-copy">
                         <h1>Laravel Ecommerce Demo</h1>
