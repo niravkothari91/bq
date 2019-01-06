@@ -24,14 +24,27 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <style>
 
+        </style>
     </head>
     <body>
         <div id="app">
 
             <header class="with-background">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">BarQualified</a>
+                {{--<div class="top-nav container">
+                    <div class="top-nav-left">
+
+                    </div>
+                    <div class="top-nav-right">
+
+                    </div>
+                </div> <!-- end top-nav -->--}}
+                <nav class="navbar navbar-collapse navbar-light bg-secondary justify-content-between">
+                    <a class="navbar-brand">BarQualified</a>
+
+                </nav>
+                <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -40,15 +53,18 @@
                             @include('partials.menus.main', ['items' => $MyNavBar->roots()])
                         </ul>
                     </div>
+                    <div class="mr-sm-2">
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="input-group-text fa fa-search" id="basic-addon1"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </nav><!--/nav-->
-                {{--<div class="top-nav container">
-                    <div class="top-nav-left">
-                        @include('partials.menus.main')
-                    </div>
-                    <div class="top-nav-right">
-                        @include('partials.menus.main-right')
-                    </div>
-                </div> <!-- end top-nav -->--}}
+                {{----}}
                 {{--<div class="hero container">
                     <div class="hero-copy">
                         <h1>Laravel Ecommerce Demo</h1>
