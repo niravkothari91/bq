@@ -1,92 +1,11 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>BarQualified - It's right in the name!</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- Slick CSS for Carousel -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        {{--<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">--}}
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <style>
-
-        </style>
-    </head>
-    <body>
+@extends('layout')
+@section('content')
         <div id="app">
-
-            <header class="with-background">
-                {{--<div class="top-nav container">
-                    <div class="top-nav-left">
-
-                    </div>
-                    <div class="top-nav-right">
-
-                    </div>
-                </div> <!-- end top-nav -->--}}
-                <nav class="navbar navbar-collapse navbar-light bg-secondary justify-content-between">
-                    <a class="navbar-brand">BarQualified</a>
-
-                </nav>
-                <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            @include('partials.menus.main', ['items' => $MyNavBar->roots()])
-                        </ul>
-                    </div>
-                    <div class="mr-sm-2">
-                        <form class="form-inline">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-                                <div class="input-group-prepend">
-                                    <button type="submit" class="input-group-text fa fa-search" id="basic-addon1"></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </nav><!--/nav-->
-                {{----}}
-                {{--<div class="hero container">
-                    <div class="hero-copy">
-                        <h1>Laravel Ecommerce Demo</h1>
-                        <p>Includes multiple products, categories, a shopping cart and a checkout system with Stripe integration.</p>
-                        <div class="hero-buttons">
-                            <a href="https://www.youtube.com/playlist?list=PLEhEHUEU3x5oPTli631ZX9cxl6cU_sDaR" class="button button-white">Screencasts</a>
-                            <a href="https://github.com/drehimself/laravel-ecommerce-example" class="button button-white">GitHub</a>
-                        </div>
-                    </div> <!-- end hero-copy -->
-
-                    <div class="hero-image">
-                        <img src="img/macbook-pro-laravel.png" alt="hero image">
-                    </div> <!-- end hero-image -->
-
-                </div> <!-- end hero -->--}}
-                <div class="home-page-carousel">
-                    @foreach($carouselImages as $image)
-                        <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}"/></a>
-                    @endforeach
-                </div>
-            </header>
-
+            <div class="home-page-carousel">
+                @foreach($carouselImages as $image)
+                    <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}"/></a>
+                @endforeach
+            </div>
             <div class="featured-section">
 
                 <div class="container">
@@ -129,24 +48,24 @@
 
             <blog-posts></blog-posts>
 
-            @include('partials.footer')
-
         </div> <!-- end #app -->
-        <script src="js/app.js"></script>
-        <script src="js/main.js"></script>
 
-        <!-- Slick JS for Carousel -->
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('.home-page-carousel').slick({
-                    dots: true,
-                    arrows: false,
-                    autoplay: true,
-                    pauseOnHover: true,
-                    pauseOnFocus: true
-                });
+    @section('extra-js')
+    <script src="js/app.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Slick JS for Carousel -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.home-page-carousel').slick({
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                pauseOnHover: true,
+                pauseOnFocus: true
             });
-        </script>
-    </body>
-</html>
+        });
+    </script>
+    @endsection
+@endsection

@@ -1,8 +1,14 @@
 @foreach($items as $item)
     <li class="nav-item @if($item->hasChildren()) dropdown @endif">
-        <a class="nav-link @if($item->hasChildren()) dropdown-toggle @endif" href="#" id="{!! $item->id !!}_dd" @if($item->hasChildren()) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
-            {!! $item->title !!}
-        </a>
+        @if($item->hasChildren())
+            <a class="nav-link dropdown-toggle" href="#" id="{!! $item->id !!}_dd" @if($item->hasChildren()) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
+                {!! $item->title !!}
+            </a>
+        @else
+            <a class="nav-link" href="{!! $item->url() !!}" id="{!! $item->id !!}">
+                {!! $item->title !!}
+            </a>
+        @endif
         @if($item->hasChildren())
             <div class="dropdown-menu" aria-labelledby="{!! $item->id !!}_dd">
                 @php $counter = 1; @endphp
@@ -17,7 +23,7 @@
                         <a class="dropdown-item" href="{!! $subcat->url() !!}">{!! $subcat->title !!}</a>
                         @php $counter++; @endphp
                     @endif
-                    <div class="dropdown-divider"></div>
+                    @if(!$loop->last) <div class="dropdown-divider"></div> @endif
                 @endforeach
             </div>
         @endif

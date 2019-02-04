@@ -22,12 +22,12 @@ class ProductsTableSeeder extends Seeder
                 'description' =>'Lorem '. $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/laptop-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(1);
+            ])->prodCategories()->attach(1);
         }
 
         // Make Laptop 1 a Desktop as well. Just to test multiple categories
         $product = Product::find(1);
-        $product->categories()->attach(2);
+        $product->prodCategories()->attach(2);
 
         // Desktops
         for ($i = 1; $i <= 9; $i++) {
@@ -39,7 +39,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/desktop-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(2);
+            ])->prodCategories()->attach(2);
         }
 
         // Phones
@@ -52,7 +52,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/phone-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(3);
+            ])->prodCategories()->attach(3);
         }
 
         // Tablets
@@ -65,7 +65,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/tablet-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(4);
+            ])->prodCategories()->attach(4);
         }
 
         // TVs
@@ -78,7 +78,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/tv-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(5);
+            ])->prodCategories()->attach(5);
         }
 
         // Cameras
@@ -91,11 +91,11 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/camera-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(6);
+            ])->prodCategories()->attach(6);
         }
 
         // Appliances
-        /*for ($i = 1; $i <= 9; $i++) {
+        for ($i = 1; $i <= 9; $i++) {
             Product::create([
                 'name' => 'Appliance ' . $i,
                 'slug' => 'appliance-' . $i,
@@ -104,8 +104,8 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/appliance-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(7);
-        }*/
+            ])->prodCategories()->attach(7);
+        }
 
         // Select random entries to be featured
         Product::whereIn('id', [1, 12, 22, 31, 41, 43, 47, 51, 53,61, 69, 73, 80])->update(['featured' => true]);

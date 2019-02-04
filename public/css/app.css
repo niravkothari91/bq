@@ -944,7 +944,7 @@ header .top-nav ul a:hover {
   color: #d0cfcf;
 }
 
-header .top-nav ul .cart-count {
+header ul .cart-count {
   display: inline-block;
   background: #FFD94D;
   color: #212121;
@@ -953,7 +953,7 @@ header .top-nav ul .cart-count {
   font-size: 14px;
 }
 
-header .top-nav ul .cart-count span {
+header ul .cart-count span {
   display: inline-block;
   padding-top: 50%;
   padding-bottom: 50%;

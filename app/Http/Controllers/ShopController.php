@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Productcategory;
+use App\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ShopController extends Controller
 {
@@ -17,12 +20,36 @@ class ShopController extends Controller
     {
         $pagination = 9;
         $categories = Category::all();
+        $products = null;
+        $subcategory = null;
+        $productCategories = null;
+        $categoryName = '';
+        if(request()->subcategory) {
+            $subcategory = Subcategory::bySlug(request()->subcategory)->first();
+            if($subcategory) {
+                $productCategories = Productcategory::ByParentId($subcategory->id)->get();
+                $products = Product::with('prodCategories')->whereHas('prodCategories', function($query) use ($productCategories) {
+                    $query->whereIn('productcategory_id', $productCategories->pluck('id'));
+                });
+                $categoryName = $subcategory->name;
+            } else {
+                return Redirect::to("/");
+            }
+        } else if(request()->productcategory) {
+            $productCategory = Productcategory::bySlug(request()->productcategory)->first();
+            if($productCategory) {
+                $products = Product::with('prodCategories')->whereHas('prodCategories', function($query) use ($productCategory) {
+                    $query->where('productcategory_id', $productCategory->id);
+                });
+                $categoryName = $productCategory->name;
 
-        if (request()->category) {
-            $products = Product::with('categories')->whereHas('categories', function ($query) {
-                $query->where('slug', request()->category);
-            });
-            $categoryName = optional($categories->where('slug', request()->category)->first())->name;
+                $subcategory = Subcategory::find($productCategory->parent_id)->first();
+                if($subcategory) {
+                    $productCategories = Productcategory::ByParentId($subcategory->id)->get();
+                }
+            } else {
+                return Redirect::to("/");
+            }
         } else {
             $products = Product::where('featured', true);
             $categoryName = 'Featured';
@@ -39,6 +66,8 @@ class ShopController extends Controller
         return view('shop')->with([
             'products' => $products,
             'categories' => $categories,
+            'subcategory' => $subcategory,
+            'productCategories' => $productCategories,
             'categoryName' => $categoryName,
         ]);
     }

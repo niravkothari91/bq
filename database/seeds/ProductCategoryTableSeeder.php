@@ -1,6 +1,6 @@
 <?php
 
-use App\ProductCategory;
+use App\Productcategory;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +15,7 @@ class ProductCategoryTableSeeder extends Seeder
     {
         $now = Carbon::now()->toDateTimeString();
 
-        ProductCategory::insert([
+        Productcategory::insert([
             ['parent_id' => 1,'name' => 'Bartending Sets', 'slug' => 'bartending-sets', 'created_at' => $now, 'updated_at' => $now],
             ['parent_id' => 1,'name' => 'Bar Tote Bar Sets', 'slug' => 'bar-tote-bar-sets', 'created_at' => $now, 'updated_at' => $now],
             ['parent_id' => 1,'name' => 'Flair Bartending / Training Bar Kits', 'slug' => 'flair-bartending-training-bar-kits', 'created_at' => $now, 'updated_at' => $now],

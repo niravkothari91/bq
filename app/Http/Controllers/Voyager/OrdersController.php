@@ -4,13 +4,8 @@ namespace App\Http\Controllers\Voyager;
 
 use App\Order;
 use Validator;
-use App\Product;
-use App\Category;
-use App\CategoryProduct;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Events\BreadDataAdded;
-use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
 class OrdersController extends VoyagerBaseController

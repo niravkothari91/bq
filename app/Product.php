@@ -9,6 +9,7 @@ class Product extends Model
 {
     use SearchableTrait;
 
+    protected $table = 'products';
     protected $fillable = ['quantity'];
 
     /**
@@ -31,9 +32,18 @@ class Product extends Model
         ],
     ];
 
-    public function categories()
+    public function prodCategories()
     {
-        return $this->belongsToMany('App\Category');
+        //return $this->belongsToMany('App\Productcategory', 'productcategory_product', 'product_id', 'product_category_id');
+        return $this->belongsToMany('App\Productcategory');
+    }
+
+    public function scopeBySubCategoryIds($query, $subCategoryIds) {
+        if(is_array($subCategoryIds)) {
+            return $query->whereIn('parent_id', $subCategoryIds);
+        } else {
+            return $query->where('parent_id', $subCategoryIds);
+        }
     }
 
     public function presentPrice()
@@ -56,7 +66,7 @@ class Product extends Model
         $array = $this->toArray();
 
         $extraFields = [
-            'categories' => $this->categories->pluck('name')->toArray(),
+            'prodcategories' => $this->prodCategories->pluck('name')->toArray(),
         ];
 
         return array_merge($array, $extraFields);

@@ -3,8 +3,8 @@
         <div>
             {{ $slot }}
         </div>
-        <div>
+        {{--<div>
             @include('partials.search')
-        </div>
+        </div>--}}
     </div>
 </div> <!-- end breadcrumbs -->

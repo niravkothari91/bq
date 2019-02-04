@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Voyager;
 
 use App\Product;
 use App\Category;
-use App\CategoryProduct;
+use App\ProductProductcategory;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\DB;
@@ -197,7 +197,7 @@ class ProductsController extends VoyagerBaseController
 
             event(new BreadDataUpdated($dataType, $data));
 
-            CategoryProduct::where('product_id', $id)->delete();
+            ProductProductcategory::where('product_id', $id)->delete();
 
             // Re-insert if there's at least one category checked
             $this->updateProductCategories($request, $id);
@@ -306,9 +306,9 @@ class ProductsController extends VoyagerBaseController
     {
         if ($request->category) {
             foreach ($request->category as $category) {
-                CategoryProduct::create([
+                ProductProductcategory::create([
                     'product_id' => $id,
-                    'category_id' => $category,
+                    'productcategory_id' => $category,
                 ]);
             }
         }

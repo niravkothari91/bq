@@ -61,7 +61,7 @@ class DataTypesTableSeederCustom extends Seeder
                 'display_name_singular' => 'Category Product',
                 'display_name_plural'   => 'Category Products',
                 'icon'                  => 'voyager-categories',
-                'model_name'            => 'App\CategoryProduct',
+                'model_name'            => 'App\ProductProductcategory',
                 'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',

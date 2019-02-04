@@ -1,15 +1,24 @@
-<header>
-    <div class="top-nav container">
-      <div class="top-nav-left">
-          <div class="logo"><a href="/">Ecommerce</a></div>
-          @if (! (request()->is('checkout') || request()->is('guestCheckout')))
-          {{ menu('main', 'partials.menus.main') }}
-          @endif
-      </div>
-      <div class="top-nav-right">
-          @if (! (request()->is('checkout') || request()->is('guestCheckout')))
-          @include('partials.menus.main-right')
-          @endif
-      </div>
-    </div> <!-- end top-nav -->
+<header class="with-background">
+    <nav class="navbar navbar-expand navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="{{route('landing-page')}}">
+            <img src="{{asset('img/bq_logo.png')}}" width="60" height="60" alt="">
+            BarQualified
+        </a>
+        <div class="navbar mr-sm-2">
+            @include('partials.menus.main-right')
+        </div>
+    </nav>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                @include('partials.menus.main', ['items' => $MyNavBar->roots()])
+            </ul>
+        </div>
+        <div class="">
+            @include('partials.search')
+        </div>
+    </nav><!--/nav-->
 </header>
