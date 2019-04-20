@@ -82,7 +82,7 @@ class MenuItemsTableSeeder extends Seeder
                 ])->save();
             }
 
-            $menuItem = MenuItem::firstOrNew([
+            /*$menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title'   => 'Categories',
                 'url'     => '',
@@ -96,7 +96,7 @@ class MenuItemsTableSeeder extends Seeder
                     'parent_id'  => null,
                     'order'      => 8,
                 ])->save();
-            }
+            }*/
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,

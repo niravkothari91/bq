@@ -75,68 +75,80 @@ class EcommerceInstall extends Command
             $this->error('Algolia credentials incorrect. Your products table is NOT seeded correctly. If you are not using Algolia, remove Laravel\Scout\Searchable from App\Product');
         }
 
+        $this->info('Seeding: VoyagerDatabaseSeeder');
         $this->call('db:seed', [
             '--class' => 'VoyagerDatabaseSeeder',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: VoyagerDummyDatabaseSeeder');
         $this->call('db:seed', [
             '--class' => 'VoyagerDummyDatabaseSeeder',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: DataTypesTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'DataTypesTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: DataRowsTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'DataRowsTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: MenusTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'MenusTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: MenuItemsTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'MenuItemsTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: RolesTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'RolesTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: PermissionsTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'PermissionsTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: PermissionRoleTableSeeder');
         $this->call('db:seed', [
             '--class' => 'PermissionRoleTableSeeder',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: PermissionRoleTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'PermissionRoleTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: UsersTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'UsersTableSeederCustom',
             '--force' => true,
         ]);
 
+        $this->info('Seeding: SettingsTableSeederCustom');
         $this->call('db:seed', [
             '--class' => 'SettingsTableSeederCustom',
             '--force' => true,
         ]);
 
 
-        try {
+        /*try {
             $this->call('scout:clear', [
                 'model' => 'App\\Product',
             ]);
@@ -146,7 +158,7 @@ class EcommerceInstall extends Command
             ]);
         } catch (\Exception $e) {
             $this->error('Algolia credentials incorrect. Check your .env file. Make sure ALGOLIA_APP_ID and ALGOLIA_SECRET are correct.');
-        }
+        }*/
 
         $this->info('Dummy data installed');
     }

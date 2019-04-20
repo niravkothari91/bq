@@ -13,10 +13,6 @@ class MenusTableSeederCustom extends Seeder
     public function run()
     {
         Menu::firstOrCreate([
-            'name' => 'main',
-        ]);
-
-        Menu::firstOrCreate([
             'name' => 'footer',
         ]);
     }

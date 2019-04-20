@@ -12,10 +12,9 @@ class Productcategory extends Model
         return $this->hasMany(Subcategory::class, 'id', 'parent_id');
     }
 
-    public function products()
-    {
-        //return $this->belongsToMany('App\Productcategory', 'productcategory_product', 'product_category_id', 'product_id');
-        return $this->belongsToMany('App\Product');
+    //This is used by Voyager Admin to define relationship with the Subcategory Model
+    public function parentId() {
+        return $this->hasOne(Subcategory::class, 'id', 'parent_id');
     }
 
     public function scopeByParentId($query, $parentId) {

@@ -35,7 +35,11 @@ class Product extends Model
     public function prodCategories()
     {
         //return $this->belongsToMany('App\Productcategory', 'productcategory_product', 'product_id', 'product_category_id');
-        return $this->belongsToMany('App\Productcategory');
+        return $this->hasOne('App\Productcategory', 'id', 'productcategory_id');
+    }
+
+    public function productcategoryId() {
+        return $this->belongsTo(Productcategory::class, 'productcategory_id', 'id');
     }
 
     public function scopeBySubCategoryIds($query, $subCategoryIds) {

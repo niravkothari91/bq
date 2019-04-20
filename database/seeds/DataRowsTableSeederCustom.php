@@ -35,6 +35,22 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($productDataType, 'productcategory_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'select_dropdown',
+                'display_name' => 'Product Category',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 2,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($productDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -47,7 +63,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '{"validation":{"rule":"max:100"}}',
-                'order'        => 2,
+                'order'        => 3,
             ])->save();
         }
 
@@ -63,7 +79,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 3,
+                'order'        => 4,
             ])->save();
         }
 
@@ -79,7 +95,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 4,
+                'order'        => 5,
             ])->save();
         }
 
@@ -95,7 +111,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '{"validation":{"rule":"required|regex:/^\\\d*(\\\.\\\d{1,2})?$/"}}',
-                'order'        => 5,
+                'order'        => 6,
             ])->save();
         }
 
@@ -111,7 +127,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 6,
+                'order'        => 7,
             ])->save();
         }
 
@@ -127,7 +143,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '{"on":"Yes","off":"No"}',
-                'order'        => 7,
+                'order'        => 8,
             ])->save();
         }
 
@@ -143,7 +159,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '{"quality":"70%","thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
-                'order'        => 8,
+                'order'        => 9,
             ])->save();
         }
 
@@ -159,7 +175,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'details'      => '',
-                'order'        => 9,
+                'order'        => 10,
             ])->save();
         }
 
@@ -168,14 +184,14 @@ class DataRowsTableSeederCustom extends Seeder
             $dataRow->fill([
                 'type'         => 'timestamp',
                 'display_name' => 'Created At',
-                'required'     => 1,
+                'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
                 'details'      => '',
-                'order'        => 10,
+                'order'        => 11,
             ])->save();
         }
 
@@ -184,14 +200,14 @@ class DataRowsTableSeederCustom extends Seeder
             $dataRow->fill([
                 'type'         => 'timestamp',
                 'display_name' => 'Updated At',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
                 'details'      => '',
-                'order'        => 11,
+                'order'        => 12,
             ])->save();
         }
 
@@ -419,23 +435,22 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-
-       /*
+        /*
         |--------------------------------------------------------------------------
-        | Category Product
+        | Subcategories
         |--------------------------------------------------------------------------
         */
 
-        $categoryProductDataType = DataType::where('slug', 'category-product')->firstOrFail();
+        $subcategoryDataType = DataType::where('slug', 'subcategory')->firstOrFail();
 
-        $dataRow = $this->dataRow($categoryProductDataType, 'id');
+        $dataRow = $this->dataRow($subcategoryDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'hidden',
                 'display_name' => 'Id',
                 'required'     => 1,
-                'browse'       => 0,
-                'read'         => 0,
+                'browse'       => 1,
+                'read'         => 1,
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
@@ -444,11 +459,11 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($categoryProductDataType, 'product_id');
+        $dataRow = $this->dataRow($subcategoryDataType, 'parent_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => 'Product Id',
+                'type'         => 'select_dropdown',
+                'display_name' => 'Parent Category',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -460,11 +475,11 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($categoryProductDataType, 'category_id');
+        $dataRow = $this->dataRow($subcategoryDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => 'Category Id',
+                'type'         => 'text',
+                'display_name' => 'Name',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -476,7 +491,23 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($categoryProductDataType, 'created_at');
+        $dataRow = $this->dataRow($subcategoryDataType, 'slug');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Slug',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($subcategoryDataType, 'created_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -488,11 +519,11 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 0,
                 'delete'       => 0,
                 'details'      => '',
-                'order'        => 4,
+                'order'        => 5,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($categoryProductDataType, 'updated_at');
+        $dataRow = $this->dataRow($subcategoryDataType, 'updated_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -504,7 +535,234 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 0,
                 'delete'       => 0,
                 'details'      => '',
+                'order'        => 6,
+            ])->save();
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Product Categories
+        |--------------------------------------------------------------------------
+        */
+
+        $prodcategoryDataType = DataType::where('slug', 'productcategory')->firstOrFail();
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'hidden',
+                'display_name' => 'Id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'parent_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'select_dropdown',
+                'display_name' => 'Parent Category',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Name',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'slug');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Slug',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'created_at');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'timestamp',
+                'display_name' => 'Created At',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
                 'order'        => 5,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($prodcategoryDataType, 'updated_at');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'timestamp',
+                'display_name' => 'Updated At',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 6,
+            ])->save();
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Carousel Images
+        |--------------------------------------------------------------------------
+        */
+
+        $carouselImagesDataType = DataType::where('slug', 'carousel-images')->firstOrFail();
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'hidden',
+                'display_name' => 'Id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'url');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Url',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'page-link');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Page Link',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'order');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => 'Order',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'is_active');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'checkbox',
+                'display_name' => 'Active',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => json_encode([
+                    "on" => "Yes",
+                    "off" => "No"
+                ]),
+                'order'        => 5,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'created_at');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'timestamp',
+                'display_name' => 'Created At',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 6,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($carouselImagesDataType, 'updated_at');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'timestamp',
+                'display_name' => 'Updated At',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 0,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'details'      => '',
+                'order'        => 7,
             ])->save();
         }
 

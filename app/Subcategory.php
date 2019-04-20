@@ -12,6 +12,10 @@ class Subcategory extends Model
         return $this->hasMany(Productcategory::class, 'parent_id', 'id');
     }
 
+    public function parentId() {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
+    }
+
     public function scopeByParentId($query, $parentId) {
         return $query->where('parent_id', $parentId);
     }

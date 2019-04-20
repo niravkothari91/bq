@@ -19,7 +19,8 @@
         "laravel/tinker": "~1.0",
         "lavary/laravel-menu": "^1.7",
         "nicolaslopezj/searchable": "^1.9",
-        "tcg/voyager": "1.1.*"
+        "tcg/voyager": "1.1.*",
+        "ext-gd": "*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

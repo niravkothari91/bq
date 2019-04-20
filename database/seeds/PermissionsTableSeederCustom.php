@@ -16,7 +16,11 @@ class PermissionsTableSeederCustom extends Seeder
 
         Permission::generateFor('category');
 
-        Permission::generateFor('category-product');
+        Permission::generateFor('subcategory');
+
+        Permission::generateFor('productcategory');
+
+        Permission::generateFor('carousel_images');
 
         Permission::generateFor('orders');
     }

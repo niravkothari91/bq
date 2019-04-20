@@ -19,7 +19,7 @@ class DataTypesTableSeederCustom extends Seeder
                 'icon'                  => 'voyager-bag',
                 'model_name'            => 'App\Product',
                 'policy_name'           => null,
-                'controller'            => '\App\Http\Controllers\Voyager\ProductsController',
+                'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',
                 'server_side'           => 1,
@@ -54,14 +54,28 @@ class DataTypesTableSeederCustom extends Seeder
             ])->save();
         }
 
-        $dataType = $this->dataType('name', 'category-product');
+        $dataType = $this->dataType('slug', 'subcategory');
         if (!$dataType->exists) {
             $dataType->fill([
-                'slug'                  => 'category-product',
-                'display_name_singular' => 'Category Product',
-                'display_name_plural'   => 'Category Products',
-                'icon'                  => 'voyager-categories',
-                'model_name'            => 'App\ProductProductcategory',
+                'name'                  => 'subcategory',
+                'display_name_singular' => 'Subcategory',
+                'display_name_plural'   => 'Subcategories',
+                'icon'                  => 'voyager-tag',
+                'model_name'            => 'App\Subcategory',
+                'controller'            => '',
+                'generate_permissions'  => 1,
+                'description'           => '',
+            ])->save();
+        }
+
+        $dataType = $this->dataType('slug', 'productcategory');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'productcategory',
+                'display_name_singular' => 'Product Category',
+                'display_name_plural'   => 'Product Categories',
+                'icon'                  => 'voyager-tag',
+                'model_name'            => 'App\Productcategory',
                 'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',
@@ -79,6 +93,20 @@ class DataTypesTableSeederCustom extends Seeder
                 'controller' => '\App\Http\Controllers\Voyager\OrdersController',
                 'generate_permissions' => 1,
                 'description' => '',
+            ])->save();
+        }
+
+        $dataType = $this->dataType('slug', 'carousel-images');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'carousel-images',
+                'display_name_singular' => 'Carousel Image',
+                'display_name_plural'   => 'Carousel Images',
+                'icon'                  => 'voyager-photos',
+                'model_name'            => 'App\CarouselImages',
+                'controller'            => '',
+                'generate_permissions'  => 1,
+                'description'           => '',
             ])->save();
         }
     }
