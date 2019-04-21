@@ -62,7 +62,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"validation":{"rule":"max:100"}}',
+                'details'      => '',
                 'order'        => 3,
             ])->save();
         }
@@ -110,7 +110,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"validation":{"rule":"required|regex:/^\\\d*(\\\.\\\d{1,2})?$/"}}',
+                'details'      => '',
                 'order'        => 6,
             ])->save();
         }
@@ -142,7 +142,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"on":"Yes","off":"No"}',
+                'details'      => '',
                 'order'        => 8,
             ])->save();
         }
@@ -158,7 +158,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"quality":"70%","thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}',
+                'details'      => '',
                 'order'        => 9,
             ])->save();
         }

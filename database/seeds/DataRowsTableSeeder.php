@@ -14,7 +14,7 @@ class DataRowsTableSeeder extends Seeder
         $postDataType = DataType::where('slug', 'posts')->firstOrFail();
         $pageDataType = DataType::where('slug', 'pages')->firstOrFail();
         $userDataType = DataType::where('slug', 'users')->firstOrFail();
-        $categoryDataType = DataType::where('slug', 'categories')->firstOrFail();
+        //$categoryDataType = DataType::where('slug', 'categories')->firstOrFail();
         $menuDataType = DataType::where('slug', 'menus')->firstOrFail();
         $roleDataType = DataType::where('slug', 'roles')->firstOrFail();
 
@@ -672,7 +672,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($categoryDataType, 'id');
+        /*$dataRow = $this->dataRow($categoryDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
@@ -798,7 +798,7 @@ class DataRowsTableSeeder extends Seeder
                 'details'      => '',
                 'order'        => 7,
             ])->save();
-        }
+        }*/
 
         $dataRow = $this->dataRow($roleDataType, 'id');
         if (!$dataRow->exists) {
