@@ -14,7 +14,6 @@ class DataRowsTableSeeder extends Seeder
         $postDataType = DataType::where('slug', 'posts')->firstOrFail();
         $pageDataType = DataType::where('slug', 'pages')->firstOrFail();
         $userDataType = DataType::where('slug', 'users')->firstOrFail();
-        //$categoryDataType = DataType::where('slug', 'categories')->firstOrFail();
         $menuDataType = DataType::where('slug', 'menus')->firstOrFail();
         $roleDataType = DataType::where('slug', 'roles')->firstOrFail();
 
@@ -125,32 +124,8 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'resize' => [
-                        'width'  => '1000',
-                        'height' => 'null',
-                    ],
-                    'quality'    => '70%',
-                    'upsize'     => true,
-                    'thumbnails' => [
-                        [
-                            'name'  => 'medium',
-                            'scale' => '50%',
-                        ],
-                        [
-                            'name'  => 'small',
-                            'scale' => '25%',
-                        ],
-                        [
-                            'name' => 'cropped',
-                            'crop' => [
-                                'width'  => '300',
-                                'height' => '250',
-                            ],
-                        ],
-                    ],
-                ]),
-                'order' => 7,
+                'details'      => json_decode('{"resize":{"width":"1000","height":"null"},"quality":"70%","upsize":true,"thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}'),
+                'order'        => 7,
             ])->save();
         }
 
@@ -165,12 +140,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'slugify' => [
-                        'origin'      => 'title',
-                        'forceUpdate' => true,
-                    ],
-                ]),
+                'details'      => json_decode('{"slugify":{"origin":"title","forceUpdate":true}}'),
                 'order' => 8,
             ])->save();
         }
@@ -218,15 +188,8 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'default' => 'DRAFT',
-                    'options' => [
-                        'PUBLISHED' => 'published',
-                        'DRAFT'     => 'draft',
-                        'PENDING'   => 'pending',
-                    ],
-                ]),
-                'order' => 11,
+                'details'      => json_decode('{"default":"DRAFT","options":{"PUBLISHED":"published","DRAFT":"draft","PENDING":"pending"}}'),
+                'order'        => 11,
             ])->save();
         }
 
@@ -353,12 +316,8 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'slugify' => [
-                        'origin' => 'title',
-                    ],
-                ]),
-                'order' => 6,
+                'details'      => json_decode('{"slugify":{"origin":"title"}}'),
+                'order'        => 6,
             ])->save();
         }
 
@@ -405,13 +364,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    'default' => 'INACTIVE',
-                    'options' => [
-                        'INACTIVE' => 'INACTIVE',
-                        'ACTIVE'   => 'ACTIVE',
-                    ],
-                ]),
+                'details'      => json_decode('{"default":"INACTIVE","options":{"INACTIVE":"INACTIVE","ACTIVE":"ACTIVE"}}'),
                 'order' => 9,
             ])->save();
         }
@@ -539,7 +492,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsTo","column":"role_id","key":"id","label":"name","pivot_table":"roles","pivot":"0"}',
+                'details'      => json_decode('{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsTo","column":"role_id","key":"id","label":"name","pivot_table":"roles","pivot":"0"}'),
                 'order'        => 10,
             ])->save();
         }
@@ -671,134 +624,6 @@ class DataRowsTableSeeder extends Seeder
                 'order'        => 4,
             ])->save();
         }
-
-        /*$dataRow = $this->dataRow($categoryDataType, 'id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'number',
-                'display_name' => 'id',
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 1,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'parent_id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => 'parent_id',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => json_encode([
-                    'default' => '',
-                    'null'    => '',
-                    'options' => [
-                        '' => '-- None --',
-                    ],
-                    'relationship' => [
-                        'key'   => 'id',
-                        'label' => 'name',
-                    ],
-                ]),
-                'order' => 2,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'order');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'order',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => json_encode([
-                    'default' => 1,
-                ]),
-                'order' => 3,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'name');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'name',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => '',
-                'order'        => 4,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'slug');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => 'slug',
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => json_encode([
-                    'slugify' => [
-                        'origin' => 'name',
-                    ],
-                ]),
-                'order' => 5,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'created_at');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => 'created_at',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 6,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($categoryDataType, 'updated_at');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => 'updated_at',
-                'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'details'      => '',
-                'order'        => 7,
-            ])->save();
-        }*/
 
         $dataRow = $this->dataRow($roleDataType, 'id');
         if (!$dataRow->exists) {
@@ -939,7 +764,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"display_name","pivot_table":"user_roles","pivot":"1","taggable":"0"}',
+                'details'      => json_decode('{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"display_name","pivot_table":"user_roles","pivot":"1","taggable":"0"}'),
                 'order'        => 11,
             ])->save();
         }

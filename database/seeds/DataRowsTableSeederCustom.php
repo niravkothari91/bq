@@ -46,7 +46,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"relationship":{"key":"id","label":"name"}}'),
                 'order'        => 2,
             ])->save();
         }
@@ -62,7 +62,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"validation":{"rule":"max:100"}}'),
                 'order'        => 3,
             ])->save();
         }
@@ -78,7 +78,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"slugify":{"origin":"name","forceUpdate":true}}'),
                 'order'        => 4,
             ])->save();
         }
@@ -110,7 +110,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"validation":{"rule":"required|regex:/^\\\d*(\\\.\\\d{1,2})?$/"}}'),
                 'order'        => 6,
             ])->save();
         }
@@ -142,7 +142,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"on":"Yes","off":"No"}'),
                 'order'        => 8,
             ])->save();
         }
@@ -158,7 +158,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"quality":"70%","thumbnails":[{"name":"medium","scale":"50%"},{"name":"small","scale":"25%"},{"name":"cropped","crop":{"width":"300","height":"250"}}]}'),
                 'order'        => 9,
             ])->save();
         }
@@ -278,7 +278,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"default":"fixed","options":{"fixed":"Fixed Value","percent":"Percent Off"}}',
+                'details'      => json_decode('{"default":"fixed","options":{"fixed":"Fixed Value","percent":"Percent Off"}}'),
                 'order'        => 3,
             ])->save();
         }
@@ -294,7 +294,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"null":""}',
+                'details'      => json_decode('{"null":""}'),
                 'order'        => 4,
             ])->save();
         }
@@ -310,7 +310,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"null":""}',
+                'details'      => json_decode('{"null":""}'),
                 'order'        => 5,
             ])->save();
         }
@@ -398,7 +398,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"slugify":{"origin":"name","forceUpdate":true}}'),
                 'order'        => 3,
             ])->save();
         }
@@ -470,7 +470,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"relationship":{"key":"id","label":"name"}}'),
                 'order'        => 2,
             ])->save();
         }
@@ -502,7 +502,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"slugify":{"origin":"name","forceUpdate":true}}'),
                 'order'        => 4,
             ])->save();
         }
@@ -574,7 +574,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"relationship":{"key":"id","label":"name"}}'),
                 'order'        => 2,
             ])->save();
         }
@@ -606,7 +606,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '',
+                'details'      => json_decode('{"slugify":{"origin":"name","forceUpdate":true}}'),
                 'order'        => 4,
             ])->save();
         }
@@ -726,10 +726,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
-                    "on" => "Yes",
-                    "off" => "No"
-                ]),
+                'details'      => json_decode('{"on":"Yes","off":"No"}'),
                 'order'        => 5,
             ])->save();
         }
@@ -1041,7 +1038,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit' => 1,
                 'add' => 0,
                 'delete' => 0,
-                'details' => '{"on":"Yes","off":"No"}',
+                'details' => json_decode('{"on":"Yes","off":"No"}'),
                 'order' => 17,
             ])->save();
         }
