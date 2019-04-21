@@ -99,7 +99,7 @@ class DataTypesTableSeederCustom extends Seeder
         $dataType = $this->dataType('slug', 'carousel-images');
         if (!$dataType->exists) {
             $dataType->fill([
-                'name'                  => 'carousel-images',
+                'name'                  => 'carousel_images',
                 'display_name_singular' => 'Carousel Image',
                 'display_name_plural'   => 'Carousel Images',
                 'icon'                  => 'voyager-photos',

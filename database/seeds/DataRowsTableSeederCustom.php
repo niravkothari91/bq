@@ -683,7 +683,7 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($carouselImagesDataType, 'page-link');
+        $dataRow = $this->dataRow($carouselImagesDataType, 'page_link');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
