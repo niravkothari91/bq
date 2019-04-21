@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('productcategory_id');
+            $table->integer('productcategory_id')->unsigned()->nullable(false);
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('details')->nullable();
@@ -23,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->boolean('featured')->default(false);
             $table->timestamps();
+
+            $table->foreign('productcategory_id')->references('id')->on('productcategory')->onDelete('cascade');
         });
     }
 

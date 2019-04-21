@@ -72,7 +72,7 @@ class EcommerceInstall extends Command
             ]);
         } catch (\Exception $e) {
             $this->error($e->getMessage());
-            $this->error('Algolia credentials incorrect. Your products table is NOT seeded correctly. If you are not using Algolia, remove Laravel\Scout\Searchable from App\Product');
+            //$this->error('Algolia credentials incorrect. Your products table is NOT seeded correctly. If you are not using Algolia, remove Laravel\Scout\Searchable from App\Product');
         }
 
         $this->info('Seeding: VoyagerDatabaseSeeder');
