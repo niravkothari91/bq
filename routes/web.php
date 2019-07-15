@@ -23,6 +23,10 @@ Route::post('/paypal-checkout', 'CheckoutController@paypalCheckout')->name('chec
 
 Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');
 
+Route::get('/about-us', 'StaticPageController@aboutUs')->name('aboutUs.index');
+Route::get('/terms-conditions', 'StaticPageController@termsConditions')->name('termsConditions.index');
+Route::get('/privacy-policy', 'StaticPageController@privacyPolicy')->name('privacyPolicy.index');
+Route::get('/terms-of-use', 'StaticPageController@termsOfUse')->name('termsOfUse.index');
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
