@@ -25,7 +25,7 @@ add('writable_dirs', []);
 host('134.209.156.249')
     ->user('deployer')
     ->identityFile('~/.ssh/deployerkey')
-    ->set('deploy_path', '/var/www/barqualified/public_html/bq');    
+    ->set('deploy_path', '/var/www/barqualified');    
     
 // Tasks
 
