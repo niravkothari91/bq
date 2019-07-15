@@ -29,7 +29,7 @@ class StaticPageController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function privacyPolicy() {
-        return view('about-us');
+        return view('privacy-policy');
     }
 
     /**
@@ -37,6 +37,6 @@ class StaticPageController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function termsOfUse() {
-        return view('terms-and-conditions');
+        return view('terms-of-use');
     }
 }

@@ -999,7 +999,7 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 40%;
+  width: 50%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1675,11 +1675,11 @@ h1.checkout-heading {
   margin-right: 24px;
 }
 
-.about-us-container, .terms-conditions-container {
+.about-us-container, .terms-conditions-container, .privacy-policy-container, .terms-of-use-container {
   padding: 30px;
 }
 
-.about-us-title, .terms-conditions-title {
+.about-us-title, .terms-conditions-title, .privacy-policy-title, .terms-of-use-title {
   padding-bottom: 20px;
 }
 
@@ -1692,6 +1692,30 @@ h1.checkout-heading {
 }
 
 .terms-conditions-container > ol > li > label {
+  font-weight: bold;
+}
+
+.privacy-policy-container > ul {
+  list-style: decimal;
+}
+
+.privacy-policy-container > ul > li > ul {
+  list-style: circle;
+}
+
+.privacy-policy-container > ul > li > label {
+  font-weight: bold;
+}
+
+.terms-of-use-container > ul {
+  list-style: decimal;
+}
+
+.terms-of-use-container > ul > li > ul {
+  list-style: circle;
+}
+
+.terms-of-use-container > ul > li > label {
   font-weight: bold;
 }
 

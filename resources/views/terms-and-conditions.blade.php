@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'About Us')
+@section('title', 'Terms and Conditions')
 
 @section('extra-css')
 @endsection
