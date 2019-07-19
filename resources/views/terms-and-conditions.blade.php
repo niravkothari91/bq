@@ -183,7 +183,7 @@
                 <label>Copyright</label>
                 <p>
                     The Site is owned and operated by BarQualified. All materials and items on this Site, including, but not limited to, text, graphics,
-                    logos, design, icons, and images, are the property of BarQualified, or its content suppliers, and is protected by Australian and
+                    logos, design, icons, and images, are the property of BarQualified, or its content suppliers, and is protected by Indian and
                     international copyright laws. Except as stated herein, none of the material may be used, copied, distributed, downloaded,
                     displayed, transmitted in any form or by any means, without the prior written permission of BarQualified Site visitors may copy
                     and download the materials on this Site for personal, non-commercial use only, provided they do not change the materials, and
@@ -215,9 +215,9 @@
                 <p>
                     Mumbai has jurisdiction over all disputes.<br>
                     For any further clarifications, please do not hesitate to contact our main office at the following address:<br>
-                    602, Shree Rasraj Tower,<br>
-                    Rokadia Cross Lane, Pai Nagar,<br>
-                    Borivali West, Mumbai-400092,<br>
+                    Gala No. 27, Blue Rose Industrial Estate,<br>
+                    Off Western Express Highway,<br>
+                    Borivali East, Mumbai-400062,<br>
                     Maharashtra – India.<br>
                     E-mail: <a href="mailto:contactus@barqualified.com">contactus@Barqualified.com</a>
                 </p>

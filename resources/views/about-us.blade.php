@@ -14,7 +14,7 @@
     @endcomponent
 
     <div class="about-us-container container">
-        <h1 class="about-us-title">"Bar Qualified - It's right in the name"</h1>
+        <h1 class="about-us-title">"BarQualified - It's right in the name"</h1>
 
         <p>
             As we say this we also mean it!<br>
