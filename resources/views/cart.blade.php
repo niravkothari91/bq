@@ -106,7 +106,7 @@
                             <hr>
                             New Subtotal <br>
                         @endif
-                        Tax ({{config('cart.tax')}}%)<br>
+                        @if(config('cart.tax') > 0) Tax ({{config('cart.tax')}}%)<br> @endif
                         <span class="cart-totals-total">Total</span>
                     </div>
                     <div class="cart-totals-subtotal">
@@ -116,7 +116,7 @@
                             <hr>
                             {{ presentPrice($newSubtotal) }} <br>
                         @endif
-                        {{ presentPrice($newTax) }} <br>
+                        @if(config('cart.tax') > 0) {{ presentPrice($newTax) }} <br> @endif
                         <span class="cart-totals-total">{{ presentPrice($newTotal) }}</span>
                     </div>
                 </div>
