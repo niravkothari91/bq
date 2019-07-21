@@ -53,7 +53,7 @@ class Product extends Model
     public function presentPrice()
     {
         /*return money_format('₹%i', $this->price / 100);*/
-        return money_format('₹%i', $this->price);
+        return money_format('₹%.0n', $this->price);
     }
 
     public function scopeMightAlsoLike($query)
