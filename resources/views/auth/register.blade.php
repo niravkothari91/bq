@@ -34,6 +34,12 @@
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password"
                     required>
 
+                <select id="customer-type" name="customer-type" class="form-control">
+                    @foreach(config('customer_types') as $id => $value)
+                        <option value="{{$id}}">{{$value}}</option>
+                    @endforeach
+                </select>
+
                 <div class="login-container">
                     <button type="submit" class="auth-button">Create Account</button>
                     <div class="already-have-container">
