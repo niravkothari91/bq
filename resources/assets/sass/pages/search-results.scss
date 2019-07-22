@@ -2,13 +2,26 @@
     min-height: 500px;
     margin: 20px auto;
 
-    a {
+    .products {
+        padding-top: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 60px $gutter;
+
+        .product-price {
+            color: $text-color-light;
+        }
+    }
+
+    /*a {
         color: darkblue;
 
         &:hover {
             text-decoration: underline;
         }
-    }
+    }*/
+
+
 }
 
 .search-results-count {

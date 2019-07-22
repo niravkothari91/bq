@@ -37,7 +37,7 @@
         <p class="search-results-count">{{ $products->total() }} result(s) for '{{ request()->input('query') }}'</p>
 
         @if ($products->total() > 0)
-        <table class="table table-bordered table-striped">
+        {{--<table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -58,7 +58,22 @@
             </tbody>
         </table>
 
-        {{ $products->appends(request()->input())->links() }}
+        {{ $products->appends(request()->input())->links() }}--}}
+
+            <div class="products text-center">
+                @forelse ($products as $product)
+                    <div class="product">
+                        <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="product"></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
+                        <div class="product-price">{{ $product->presentPrice() }}</div>
+                    </div>
+                @empty
+                    <div style="text-align: left">No items found</div>
+                @endforelse
+            </div> <!-- end products -->
+
+            <div class="spacer"></div>
+            {{ $products->appends(request()->input())->links() }}
         @endif
     </div> <!-- end search-results-container -->
 
