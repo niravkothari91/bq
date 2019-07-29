@@ -46,8 +46,6 @@
 
             </div> <!-- end featured-section -->
 
-            <blog-posts></blog-posts>
-
         </div> <!-- end #app -->
 
     @section('extra-js')

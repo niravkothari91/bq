@@ -61,11 +61,6 @@
             <div class="spacer"></div>
             <p><strong>Save time now.</strong></p>
             <p>Creating an account will allow you to checkout faster in the future, have easy access to order history and customize your experience to suit your preferences.</p>
-
-            &nbsp;
-            <div class="spacer"></div>
-            <p><strong>Loyalty Program</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt debitis, amet magnam accusamus nisi distinctio eveniet ullam. Facere, cumque architecto.</p>
         </div>
     </div> <!-- end auth-pages -->
 </div>
