@@ -51,7 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'customer-type' => 'required|string|in:'.array_keys(config('customer_types'))
+            'customer-type' => 'required|string|in:'.implode(",", array_keys(config('customer_types')))
         ]);
     }
 
@@ -67,7 +67,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'customer-type' => $data['customer-type'],
+            'customer_type' => $data['customer-type'],
         ]);
     }
 }

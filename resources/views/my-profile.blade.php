@@ -50,17 +50,29 @@
                     @method('patch')
                     @csrf
                     <div class="form-control">
+                        <label class="signup-label" for="name">Name</label>
                         <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}" placeholder="Name" required>
                     </div>
                     <div class="form-control">
+                        <label class="signup-label" for="email">Email Address</label>
                         <input id="email" type="email" name="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
                     </div>
                     <div class="form-control">
+                        <label class="signup-label" for="password">Password</label>
                         <input id="password" type="password" name="password" placeholder="Password">
-                        <div>Leave password blank to keep current password</div>
+                        <p><small>Leave password blank to keep current password</small></p>
                     </div>
                     <div class="form-control">
+                        <label class="signup-label" for="password-confirm">Confirm Password</label>
                         <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirm Password">
+                    </div>
+                    <div class="form-control">
+                        <label class="signup-label" for="customer-type">Customer Type</label>
+                        <select id="customer-type" name="customer-type" class="form-control" required>
+                            @foreach(config('customer_types') as $id => $value)
+                                <option value="{{$id}}" @if(old('customer-type', $user->customer_type) == $id) selected="selected" @endif>{{$value}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div>
                         <button type="submit" class="my-profile-button">Update Profile</button>

@@ -25,16 +25,21 @@
             <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
+                <label class="signup-label" for="name">Name</label>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required autofocus>
 
+                <label class="signup-label" for="email">Email Address</label>
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
 
+                <label class="signup-label" for="password">Password</label>
                 <input id="password" type="password" class="form-control" name="password" placeholder="Password" placeholder="Password" required>
 
+                <label class="signup-label" for="password-confirm">Confirm Password</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password"
                     required>
 
-                <select id="customer-type" name="customer-type" class="form-control">
+                <label class="signup-label" for="customer-type">Customer Type</label>
+                <select id="customer-type" name="customer-type" class="form-control" required>
                     @foreach(config('customer_types') as $id => $value)
                         <option value="{{$id}}">{{$value}}</option>
                     @endforeach
