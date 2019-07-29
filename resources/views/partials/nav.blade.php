@@ -1,4 +1,7 @@
 <header class="with-background">
+
+    @include('partials.banner')
+
     <nav class="navbar navbar-expand navbar-dark bg-dark justify-content-between">
         <a class="navbar-brand" href="{{route('landing-page')}}">
             <img src="{{asset('img/bq_logo.png')}}" width="60" height="60" alt="">
