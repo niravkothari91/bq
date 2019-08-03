@@ -25,7 +25,9 @@
             <form action="{{ route('login') }}" method="POST">
                 {{ csrf_field() }}
 
+                <label class="signup-label" for="email">Email</label>
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                <label class="signup-label" for="password">Password</label>
                 <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Password" required>
 
                 <div class="login-container">
