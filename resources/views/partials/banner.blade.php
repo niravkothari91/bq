@@ -1,2 +1,2 @@
 <div class="header-banner">
-    <span class="banner-title">PURCHASING IN BULK?</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-description">Shoot us an email &nbsp;&nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>&nbsp;&nbsp;<a href="mailto:contactus@barqualified.com">contactus@barqualified.com</a></span></div>
+    <span class="banner-title">PURCHASING IN BULK?</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-description">Reach us at &nbsp;&nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>&nbsp;&nbsp;<a href="mailto:contactus@barqualified.com">contactus@barqualified.com</a> | <a href="tel:+919773572294">+91 9773572294</a></span></div>
