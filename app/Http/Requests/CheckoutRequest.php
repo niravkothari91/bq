@@ -27,12 +27,12 @@ class CheckoutRequest extends FormRequest
 
         return [
             'email' => $emailValidation,
-            'name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'province' => 'required',
-            'postalcode' => 'required',
-            'phone' => 'required',
+            'shipping_name' => 'required',
+            'shipping_address' => 'required',
+            'shipping_city' => 'required',
+            'shipping_province' => 'required',
+            'shipping_postalcode' => 'required',
+            'shipping_phone' => 'required',
         ];
     }
 

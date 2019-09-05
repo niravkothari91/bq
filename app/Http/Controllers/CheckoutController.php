@@ -30,17 +30,17 @@ class CheckoutController extends Controller
             return redirect()->route('checkout.index');
         }
 
-        $gateway = new \Braintree\Gateway([
+        /*$gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        $paypalToken = $gateway->ClientToken()->generate();
+        $paypalToken = $gateway->ClientToken()->generate();*/
 
         return view('checkout')->with([
-            'paypalToken' => $paypalToken,
+            //'paypalToken' => $paypalToken,
             'discount' => getNumbers()->get('discount'),
             'newSubtotal' => getNumbers()->get('newSubtotal'),
             'newTax' => getNumbers()->get('newTax'),
@@ -66,21 +66,26 @@ class CheckoutController extends Controller
             return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
 
-        try {
-            $charge = Stripe::charges()->create([
-                'amount' => getNumbers()->get('newTotal') / 100,
-                'currency' => 'CAD',
-                'source' => $request->stripeToken,
-                'description' => 'Order',
-                'receipt_email' => $request->email,
-                'metadata' => [
-                    'contents' => $contents,
-                    'quantity' => Cart::instance('default')->count(),
-                    'discount' => collect(session()->get('coupon'))->toJson(),
-                ],
-            ]);
+        $isOrderCOD = true;
 
-            $order = $this->addToOrdersTables($request, null);
+        try {
+            if($request->has('complete_order') && $request->get('complete_order') === "Complete Order") {
+                $charge = Stripe::charges()->create([
+                    'amount' => getNumbers()->get('newTotal') / 100,
+                    'currency' => 'CAD',
+                    'source' => $request->stripeToken,
+                    'description' => 'Order',
+                    'receipt_email' => $request->email,
+                    'metadata' => [
+                        'contents' => $contents,
+                        'quantity' => Cart::instance('default')->count(),
+                        'discount' => collect(session()->get('coupon'))->toJson(),
+                    ],
+                ]);
+                $isOrderCOD = false;
+            }
+
+            $order = $this->addToOrdersTables($request, $isOrderCOD, null);
             Mail::send(new OrderPlaced($order));
 
             // decrease the quantities of all the products in the cart
@@ -91,7 +96,7 @@ class CheckoutController extends Controller
 
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
-            $this->addToOrdersTables($request, $e->getMessage());
+            $this->addToOrdersTables($request, $isOrderCOD, $e->getMessage());
             return back()->withErrors('Error! ' . $e->getMessage());
         }
     }
@@ -130,6 +135,7 @@ class CheckoutController extends Controller
 
         if ($result->success) {
             $order = $this->addToOrdersTablesPaypal(
+                $request,
                 $transaction->paypal['payerEmail'],
                 $transaction->paypal['payerFirstName'].' '.$transaction->paypal['payerLastName'],
                 null
@@ -146,6 +152,7 @@ class CheckoutController extends Controller
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } else {
             $order = $this->addToOrdersTablesPaypal(
+                $request,
                 $transaction->paypal['payerEmail'],
                 $transaction->paypal['payerFirstName'].' '.$transaction->paypal['payerLastName'],
                 $result->message
@@ -155,24 +162,32 @@ class CheckoutController extends Controller
         }
     }
 
-    protected function addToOrdersTables($request, $error)
+    protected function addToOrdersTables($request, $isOrderCOD, $error = null)
     {
         // Insert into orders table
         $order = Order::create([
             'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $request->email,
-            'billing_name' => $request->name,
-            'billing_address' => $request->address,
-            'billing_city' => $request->city,
-            'billing_province' => $request->province,
-            'billing_postalcode' => $request->postalcode,
-            'billing_phone' => $request->phone,
-            'billing_name_on_card' => $request->name_on_card,
+            'shipping_name' => $request->shipping_name,
+            'shipping_address' => $request->shipping_address,
+            'shipping_city' => $request->shipping_city,
+            'shipping_province' => $request->shipping_province,
+            'shipping_postalcode' => $request->shipping_postalcode,
+            'shipping_phone' => $request->shipping_phone,
+            'billing_name' => (!$isOrderCOD) ? $request->billing_name : '',
+            'billing_address' => (!$isOrderCOD) ? $request->billing_address : '',
+            'billing_city' => (!$isOrderCOD) ? $request->billing_city : '',
+            'billing_province' => (!$isOrderCOD) ? $request->billing_province : '',
+            'billing_postalcode' => (!$isOrderCOD) ? $request->billing_postalcode : '',
+            'billing_phone' => (!$isOrderCOD) ? $request->billing_phone : '',
+            'billing_name_on_card' => (!$isOrderCOD) ? $request->name_on_card : '',
+            'gst_number' => $request->gst_number,
             'billing_discount' => getNumbers()->get('discount'),
             'billing_discount_code' => getNumbers()->get('code'),
             'billing_subtotal' => getNumbers()->get('newSubtotal'),
             'billing_tax' => getNumbers()->get('newTax'),
             'billing_total' => getNumbers()->get('newTotal'),
+            'payment_gateway' => ($isOrderCOD) ? 'COD' : 'stripe',
             'error' => $error,
         ]);
 
@@ -188,13 +203,20 @@ class CheckoutController extends Controller
         return $order;
     }
 
-    protected function addToOrdersTablesPaypal($email, $name, $error)
+    protected function addToOrdersTablesPaypal($request, $email, $name, $error)
     {
         // Insert into orders table
         $order = Order::create([
             'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $email,
             'billing_name' => $name,
+            'shipping_name' => $request->shipping_name,
+            'shipping_address' => $request->shipping_address,
+            'shipping_city' => $request->shipping_city,
+            'shipping_province' => $request->shipping_province,
+            'shipping_postalcode' => $request->shipping_postalcode,
+            'shipping_phone' => $request->shipping_phone,
+            'gst_number' => $request->gst_number,
             'billing_discount' => getNumbers()->get('discount'),
             'billing_discount_code' => getNumbers()->get('code'),
             'billing_subtotal' => getNumbers()->get('newSubtotal'),
