@@ -30,6 +30,7 @@ Route::get('/terms-of-use', 'StaticPageController@termsOfUse')->name('termsOfUse
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
+Route::any('/maintenance', 'MaintenanceController@index')->name('maintenance');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
