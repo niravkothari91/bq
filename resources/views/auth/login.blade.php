@@ -48,13 +48,13 @@
 
         <div class="auth-right">
             <h2>New Customer</h2>
-            <div class="spacer"></div>
+            {{--<div class="spacer"></div>
             <p><strong>Save time now.</strong></p>
             <p>You don't need an account to checkout.</p>
             <div class="spacer"></div>
             <a href="{{ route('guestCheckout.index') }}" class="auth-button-hollow">Continue as Guest</a>
-            <div class="spacer"></div>
-            &nbsp;
+            <div class="spacer"></div>--}}
+
             <div class="spacer"></div>
             <p><strong>Save time later.</strong></p>
             <p>Create an account for fast checkout and easy access to order history.</p>
