@@ -41,7 +41,7 @@
                 <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
                     {{ csrf_field() }}
 
-                    <h2>Shipping Details</h2>
+                    <h2>Billing Details</h2>
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
@@ -53,91 +53,95 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="shipping_name">Name</label>
-                        <input type="text" class="form-control" id="shipping_name" name="shipping_name" value="{{ old('shipping_name') }}" required>
+                        <label for="billing_name">Name</label>
+                        <input type="text" class="form-control" id="billing_name" name="billing_name" value="{{ old('billing_name') }}" required>
                     </div>
-
                     <div class="form-group">
                         <label for="gst_number">GST Number <small>(Optional)</small></label>
-                        <input type="text" class="form-control" id="gst_number" name="gst_number" value="">
+                        <input type="text" class="form-control" id="gst_number" name="gst_number" value="{{ old('gst_number') }}">
                     </div>
-
                     <div class="form-group">
-                        <label for="shipping_address">Address</label>
-                        <input type="text" class="form-control" id="shipping_address" name="shipping_address" value="{{ old('shipping_address') }}" required>
+                        <label for="billing_address">Address</label>
+                        <input type="text" class="form-control" id="billing_address" name="billing_address" value="{{ old('billing_address') }}" required>
                     </div>
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="shipping_city">City</label>
-                            <input type="text" class="form-control" id="shipping_city" name="shipping_city" value="{{ old('shipping_city') }}" required>
+                            <label for="billing_city">City</label>
+                            <input type="text" class="form-control" id="billing_city" name="billing_city" value="{{ old('billing_city') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="shipping_province">State/Province</label>
-                            <input type="text" class="form-control" id="shipping_province" name="shipping_province" value="{{ old('shipping_province') }}" required>
+                            <label for="billing_province">State/Province</label>
+                            <input type="text" class="form-control" id="billing_province" name="billing_province" value="{{ old('billing_province') }}" required>
                         </div>
                     </div> <!-- end half-form -->
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="shipping_postalcode">Postal Code</label>
-                            <input type="text" class="form-control" id="shipping_postalcode" name="shipping_postalcode" value="{{ old('shipping_postalcode') }}" required>
+                            <label for="billing_postalcode">Postal Code</label>
+                            <input type="text" class="form-control" id="billing_postalcode" name="billing_postalcode" value="{{ old('billing_postalcode') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="shipping_phone">Phone</label>
-                            <input type="text" class="form-control" id="shipping_phone" name="shipping_phone" value="{{ old('shipping_phone') }}" required>
+                            <label for="billing_phone">Phone</label>
+                            <input type="text" class="form-control" id="billing_phone" name="billing_phone" value="{{ old('billing_phone') }}" required>
                         </div>
                     </div> <!-- end half-form -->
-
-                    <input id="cash_on_delivery_submit" name="cash_on_delivery_submit" class="button-primary full-width" type="submit" value="Cash on Delivery">
-
-                    @if(false)
-                    <div class="mt-32">or</div>
 
                     <div class="mt-32">
 
-                        <h2>Payment Details</h2>
-
                         <div>
-                            <input type="checkbox" class="" id="billing_shipping_check" name="billing_shipping_check" onclick="SetBilling(this.checked);" @if(!request()->has('billing_shipping_check') || old('billing_shipping_check')) checked="checked" @endif required> Is your billing address same as your shipping address?
+                            <input type="checkbox" class="" id="billing_shipping_check" name="billing_shipping_check" onclick="SetBilling(this.checked);" @if(!request()->has('billing_shipping_check') || old('billing_shipping_check')) checked="checked" @endif> Is your billing address same as your shipping address?
                         </div>
 
                         <div class="spacer"></div>
 
-                        <div class="billing-details-container" style="display:none">
-                            <h2>Billing Details</h2>
+                        <!-- SHIPPING DETAILS GO HERE -->
+                        <div class="shipping-details-container" style="display:none">
+
+                            <h2>Shipping Details</h2>
 
                             <div class="form-group">
-                                <label for="billing_name">Name</label>
-                                <input type="text" class="form-control" id="billing_name" name="billing_name" value="{{ old('billing_name') }}">
+                                <label for="shipping_name">Name</label>
+                                <input type="text" class="form-control" id="shipping_name" name="shipping_name" value="{{ old('shipping_name') }}">
                             </div>
+
                             <div class="form-group">
-                                <label for="billing_address">Address</label>
-                                <input type="text" class="form-control" id="billing_address" name="billing_address" value="{{ old('billing_address') }}">
+                                <label for="shipping_address">Address</label>
+                                <input type="text" class="form-control" id="shipping_address" name="shipping_address" value="{{ old('shipping_address') }}">
                             </div>
 
                             <div class="half-form">
                                 <div class="form-group">
-                                    <label for="billing_city">City</label>
-                                    <input type="text" class="form-control" id="billing_city" name="billing_city" value="{{ old('billing_city') }}">
+                                    <label for="shipping_city">City</label>
+                                    <input type="text" class="form-control" id="shipping_city" name="shipping_city" value="{{ old('shipping_city') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="billing_province">State/Province</label>
-                                    <input type="text" class="form-control" id="billing_province" name="billing_province" value="{{ old('billing_province') }}">
+                                    <label for="shipping_province">State/Province</label>
+                                    <input type="text" class="form-control" id="shipping_province" name="shipping_province" value="{{ old('shipping_province') }}">
                                 </div>
                             </div> <!-- end half-form -->
 
                             <div class="half-form">
                                 <div class="form-group">
-                                    <label for="billing_postalcode">Postal Code</label>
-                                    <input type="text" class="form-control" id="billing_postalcode" name="billing_postalcode" value="{{ old('billing_postalcode') }}">
+                                    <label for="shipping_postalcode">Postal Code</label>
+                                    <input type="text" class="form-control" id="shipping_postalcode" name="shipping_postalcode" value="{{ old('shipping_postalcode') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="billing_phone">Phone</label>
-                                    <input type="text" class="form-control" id="billing_phone" name="billing_phone" value="{{ old('billing_phone') }}">
+                                    <label for="shipping_phone">Phone</label>
+                                    <input type="text" class="form-control" id="shipping_phone" name="shipping_phone" value="{{ old('shipping_phone') }}">
                                 </div>
                             </div> <!-- end half-form -->
                         </div>
+
+                        <input id="cash_on_delivery_submit" name="cash_on_delivery_submit" class="button-primary full-width" type="submit" value="Cash on Delivery">
+
+                        @if(false)
+
+                        <div class="mt-32">or</div>
+
+                        <div class="spacer"></div>
+
+                        <h2>Payment Details</h2>
 
                         <div class="form-group">
                             <label for="name_on_card">Name on Card</label>
@@ -158,8 +162,8 @@
                         <div class="spacer"></div>
 
                         <input type="submit" id="complete_order" name="complete_order" class="button-primary full-width" value="Complete Order">
+                        @endif
                     </div>
-                    @endif
                 </form>
 
                 @if(false)
@@ -373,21 +377,15 @@
 
         function SetBilling(checked) {
             if (checked) {
-                $('.billing-details-container').hide();
-                document.getElementById('billing_name').value = document.getElementById('name').value;
-                document.getElementById('billing_address').value = document.getElementById('address').value;
-                document.getElementById('billing_city').value = document.getElementById('city').value;
-                document.getElementById('billing_province').value = document.getElementById('province').value;
-                document.getElementById('billing_postalcode').value = document.getElementById('postalcode').value;
-                document.getElementById('billing_phone').value = document.getElementById('phone').value;
+                $('.shipping-details-container').hide();
             } else {
-                $('.billing-details-container').show();
-                document.getElementById('billing_name').value = '';
-                document.getElementById('billing_address').value = '';
-                document.getElementById('billing_city').value = '';
-                document.getElementById('billing_province').value = '';
-                document.getElementById('billing_postalcode').value = '';
-                document.getElementById('billing_phone').value = '';
+                $('.shipping-details-container').show();
+                document.getElementById('shipping_name').value = '';
+                document.getElementById('shipping_address').value = '';
+                document.getElementById('shipping_city').value = '';
+                document.getElementById('shipping_province').value = '';
+                document.getElementById('shipping_postalcode').value = '';
+                document.getElementById('shipping_phone').value = '';
             }
         }
     </script>
