@@ -43,7 +43,7 @@ class ShopController extends Controller
                 });
                 $categoryName = $productCategory->name;
 
-                $subcategory = Subcategory::find($productCategory->parent_id)->first();
+                $subcategory = Subcategory::find($productCategory->parent_id);
                 if($subcategory) {
                     $productCategories = Productcategory::ByParentId($subcategory->id)->get();
                 }
