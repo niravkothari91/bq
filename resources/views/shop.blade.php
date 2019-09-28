@@ -30,33 +30,34 @@
                 </ul>
             </div>
         @endif
+    </div>
 
-        <div class="products-section container">
-            <div class="sidebar">
-                @if($subcategory && $subcategory->productCategories && count($subcategory->productCategories) > 0)
-                <h3>By Category</h3>
-                <ul>
-                    @foreach ($subcategory->productCategories as $productCategory)
-                        <li class="{{ setActiveCategory($productCategory->slug) }}"><a href="{{ route('shop.index', ['productcategory' => $productCategory->slug]) }}">{{ $productCategory->name }}</a></li>
-                    @endforeach
-                </ul>
-                {{--<div id="accordion" style="width:90%">
-                    @foreach($categories as $category)
-                        <h3>{{$category->name}}</h3>
-                        <div>
-                            @if($category->subcategories && count($category->subcategories) > 0)
-                                @foreach($category->subcategories as $subcategory)
-                                    <p><a href="{{ route('shop.index', ['category' => $subcategory->slug]) }}">{{ $subcategory->name }}</a></p>
-                                @endforeach
-                            @endif
-                        </div>
+    <div class="products-section container">
+        <div class="sidebar">
+            @if($subcategory && $subcategory->productCategories && count($subcategory->productCategories) > 0)
+            <h3>By Category</h3>
+            <ul>
+                @foreach ($subcategory->productCategories as $productCategory)
+                    <li class="{{ setActiveCategory($productCategory->slug) }}"><a href="{{ route('shop.index', ['productcategory' => $productCategory->slug]) }}">{{ $productCategory->name }}</a></li>
+                @endforeach
+            </ul>
+            {{--<div id="accordion" style="width:90%">
+                @foreach($categories as $category)
+                    <h3>{{$category->name}}</h3>
+                    <div>
+                        @if($category->subcategories && count($category->subcategories) > 0)
+                            @foreach($category->subcategories as $subcategory)
+                                <p><a href="{{ route('shop.index', ['category' => $subcategory->slug]) }}">{{ $subcategory->name }}</a></p>
+                            @endforeach
+                        @endif
+                    </div>
 
 
-                    @endforeach
-                </div>--}}
-                @endif
-            </div> <!-- end sidebar -->
-
+                @endforeach
+            </div>--}}
+            @endif
+        </div> <!-- end sidebar -->
+        <div>
             <div class="products-header">
                 <h1 class="stylish-heading">{{ $categoryName }}</h1>
                 <div>
@@ -71,15 +72,13 @@
                         <a href="{{ route('shop.index', ['sort' => 'low_high']) }}">Low to High</a> |
                         <a href="{{ route('shop.index', ['sort' => 'high_low']) }}">High to Low</a>
                     @endif
-
-
                 </div>
             </div>
 
             <div class="products text-center">
                 @forelse ($products as $product)
                     <div class="product">
-                        <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="product"></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" width="250px" alt="product"></a>
                         <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
                         <div class="product-price">{{ $product->presentPrice() }}</div>
                     </div>
