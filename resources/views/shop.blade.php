@@ -3,7 +3,7 @@
 @section('title', 'Products')
 
 @section('extra-css')
-    <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('css/algolia.css') }}">--}}
 @endsection
 
 @section('content')
@@ -30,9 +30,8 @@
                 </ul>
             </div>
         @endif
-    </div>
 
-    <div class="products-section container">
+        <div class="products-section container">
             <div class="sidebar">
                 @if($subcategory && $subcategory->productCategories && count($subcategory->productCategories) > 0)
                 <h3>By Category</h3>
@@ -57,7 +56,7 @@
                 </div>--}}
                 @endif
             </div> <!-- end sidebar -->
-        <div>
+
             <div class="products-header">
                 <h1 class="stylish-heading">{{ $categoryName }}</h1>
                 <div>
@@ -80,7 +79,7 @@
             <div class="products text-center">
                 @forelse ($products as $product)
                     <div class="product">
-                        <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" width="250px" alt="product"></a>
+                        <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="product"></a>
                         <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
                         <div class="product-price">{{ $product->presentPrice() }}</div>
                     </div>
