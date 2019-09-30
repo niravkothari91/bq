@@ -3,6 +3,14 @@ header.with-background {
     background-size: cover;
     color: $white;
 
+    .nav-bg {
+      background-color: $black-background;
+    }
+
+    .bg-gold {
+      background-color: $gold-background;
+    }
+
     .top-nav {
       display: flex;
       justify-content: space-between;
