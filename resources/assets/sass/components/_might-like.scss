@@ -17,6 +17,7 @@
         background: white;
         padding: 30px 0 20px;
         text-align: center;
+        position: relative;
 
         img {
             width: 70%;
@@ -24,16 +25,16 @@
     }
 
     .might-like-product-image {
-        height: 70%;
+        height: 250px;
     }
 
-    .might-like-product-name {
-        height: 15%;
-        overflow: hidden;
+    .float-bottom {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
     }
 
     .might-like-product-price {
         color: $text-color-light;
-        height: 15%;
     }
 }
