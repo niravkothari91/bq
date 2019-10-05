@@ -23,7 +23,16 @@
         }
     }
 
+    .might-like-product-image {
+        min-height: 70%;
+    }
+
+    .might-like-product-name {
+        min-height: 15%;
+    }
+
     .might-like-product-price {
         color: $text-color-light;
+        min-height: 15%;
     }
 }
