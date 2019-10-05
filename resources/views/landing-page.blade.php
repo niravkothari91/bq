@@ -9,9 +9,9 @@
             <div class="featured-section">
 
                 <div class="container">
-                    <h1 class="text-center">BarQualified</h1>
+                    {{--<h1 class="text-center">BarQualified</h1>
 
-                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>
+                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>--}}
 
                     <div class="text-center button-container">
                         <a href="#" class="button">Featured</a>
