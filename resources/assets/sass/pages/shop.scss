@@ -12,8 +12,23 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 60px $gutter;
 
-        .product-price {
-          color: $text-color-light;
+        .product {
+            border: 1px solid $gold-background;
+            padding: 5px;
+
+            img {
+                max-width: 98%;
+                max-height: 98%;
+            }
+
+            .product-image-container {
+                width: 100%;
+                height: 250px;
+            }
+
+            .product-price {
+                color: $text-color-light !important;
+            }
         }
     }
 }
