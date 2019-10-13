@@ -9,10 +9,28 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 60px $gutter;
+        text-align: center;
 
-        .product-price {
-            color: $text-color-light !important;
+        .product {
+            border: 1px solid $gold-background;
+            padding-top: 5px;
+
+            img {
+                max-width: 98%;
+                max-height: 98%;
+            }
+
+            .product-image-container {
+                width: 100%;
+                height: 250px;
+            }
+
+            .product-price {
+                color: $text-color-light !important;
+            }
         }
+
+
     }
 }
 
