@@ -13,7 +13,7 @@
         grid-gap: 60px $gutter;
 
         .product {
-            border: 1px solid $gold-background;
+            border: 2px solid $gold-background;
             padding: 5px;
 
             img {
@@ -31,6 +31,10 @@
             }
         }
     }
+}
+
+.stylish-heading {
+    color: $text-color-light;
 }
 
 .products-header {

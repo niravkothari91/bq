@@ -8,14 +8,14 @@ html {
 
 a {
     text-decoration: none !important;
-    color: $text-color !important;
+    color: $gold-background !important;
 
     /*&:visited {
         color: $text-color;
     }*/
 
     &:hover {
-        color: $gold-background !important;
+        color: darken($gold-background, 10%) !important;
     }
 
 }

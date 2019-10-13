@@ -59,7 +59,7 @@
             <div>{!! $stockLevel !!}</div>
             <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
-            <p>
+            <p class="product-section-description">
                 {!! $product->description !!}
             </p>
 

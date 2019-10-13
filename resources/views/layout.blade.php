@@ -34,7 +34,7 @@
 </head>
 
 
-<body class="@yield('body-class', '')">
+<body class="@yield('body-class', '')" style="background:#000000">
     @include('partials.nav')
 
     @yield('content')

@@ -19,20 +19,20 @@
                 </ul>
             </div>
             @endif
-            <h2>Returning Customer</h2>
+            <h2 class="light-text-color">Returning Customer</h2>
             <div class="spacer"></div>
 
             <form action="{{ route('login') }}" method="POST">
                 {{ csrf_field() }}
 
-                <label class="signup-label" for="email">Email</label>
+                <label class="signup-label light-text-color" for="email">Email</label>
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
-                <label class="signup-label" for="password">Password</label>
+                <label class="signup-label light-text-color" for="password">Password</label>
                 <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Password" required>
 
                 <div class="login-container">
                     <button type="submit" class="auth-button">Login</button>
-                    <label>
+                    <label class="light-text-color">
                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                     </label>
                 </div>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="auth-right">
-            <h2>New Customer</h2>
+            <h2 class="light-text-color">New Customer</h2>
             {{--<div class="spacer"></div>
             <p><strong>Save time now.</strong></p>
             <p>You don't need an account to checkout.</p>
@@ -56,8 +56,8 @@
             <div class="spacer"></div>--}}
 
             <div class="spacer"></div>
-            <p><strong>Save time later.</strong></p>
-            <p>Create an account for fast checkout and easy access to order history.</p>
+            <p class="light-text-color"><strong>Save time later.</strong></p>
+            <p class="light-text-color">Create an account for fast checkout and easy access to order history.</p>
             <div class="spacer"></div>
             <a href="{{ route('register') }}" class="auth-button-hollow">Create Account</a>
 

@@ -58,6 +58,7 @@
 
 .product-section-title {
     margin-bottom: 0;
+    color: $text-color-light;
 }
 
 .product-section-subtitle {
@@ -68,7 +69,14 @@
 
 .product-section-price {
     font-size: 38px;
-    color: $text-color;
+    color: $text-color-light;
     margin-bottom: 16px;
 }
 
+.product-section-description {
+    color: $text-color-light;
+}
+
+.button-plain {
+    background-color: $gold-background;
+}

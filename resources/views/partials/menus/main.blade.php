@@ -10,7 +10,7 @@
             </a>
         @endif
         @if($item->hasChildren())
-            <div class="dropdown-menu" aria-labelledby="{!! $item->id !!}_dd">
+            <div class="dropdown-menu bg-dark" aria-labelledby="{!! $item->id !!}_dd">
                 @php $counter = 1; @endphp
                 @foreach($item->children() as $subcat)
                     @if($subcat->hasChildren())

@@ -27,6 +27,11 @@ h1.checkout-heading {
     align-items: center;
     border-top: 1px solid $text-color-light;
     padding: 14px 0;
+    color: $text-color-light !important;
+
+    .checkout-item-details {
+      padding-left: 5px;
+    }
 
     &:last-child {
       border-bottom: 1px solid $text-color-light;
@@ -72,6 +77,7 @@ h1.checkout-heading {
     border-bottom: 1px solid $text-color-light;
     padding: 18px 0;
     line-height: 2;
+    color: $text-color-light;
 
     .checkout-totals-right {
       text-align: right;

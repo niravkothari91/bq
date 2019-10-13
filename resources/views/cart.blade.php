@@ -34,7 +34,7 @@
 
             @if (Cart::count() > 0)
 
-            <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
+            <h2 class="light-text-color">{{ Cart::count() }} item(s) in Shopping Cart</h2>
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
@@ -68,7 +68,7 @@
                                 @endfor
                             </select>
                         </div>
-                        <div>{{ presentPrice($item->subtotal) }}</div>
+                        <div class="light-text-color">{{ presentPrice($item->subtotal) }}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endforeach
@@ -124,7 +124,7 @@
 
             <div class="cart-buttons">
                 <a href="{{ route('shop.index') }}" class="button">Continue Shopping</a>
-                <a href="{{ route('checkout.index') }}" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route('checkout.index') }}" class="button gold-background">Proceed to Checkout</a>
             </div>
 
             @else
@@ -138,7 +138,7 @@
 
             @if (Cart::instance('saveForLater')->count() > 0)
 
-            <h2>{{ Cart::instance('saveForLater')->count() }} item(s) Saved For Later</h2>
+            <h2 class="light-text-color">{{ Cart::instance('saveForLater')->count() }} item(s) Saved For Later</h2>
 
             <div class="saved-for-later cart-table">
                 @foreach (Cart::instance('saveForLater')->content() as $item)
@@ -166,7 +166,7 @@
                             </form>
                         </div>
 
-                        <div>{{ $item->model->presentPrice() }}</div>
+                        <div class="light-text-color">{{ $item->model->presentPrice() }}</div>
                     </div>
                 </div> <!-- end cart-table-row -->
                 @endforeach
@@ -175,7 +175,7 @@
 
             @else
 
-            <h3>You have no items Saved for Later.</h3>
+            <h3 class="light-text-color">You have no items Saved for Later.</h3>
 
             @endif
 

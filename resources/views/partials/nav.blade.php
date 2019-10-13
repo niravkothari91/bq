@@ -11,7 +11,7 @@
             @include('partials.menus.main-right')
         </div>
     </nav>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light justify-content-between">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark justify-content-between">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

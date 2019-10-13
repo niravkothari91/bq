@@ -41,10 +41,10 @@
                 <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
                     {{ csrf_field() }}
 
-                    <h2>Billing Details</h2>
+                    <h2 class="light-text-color">Billing Details</h2>
 
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label class="light-text-color" for="email">Email Address</label>
                         @if (auth()->user())
                             <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
                         @else
@@ -53,36 +53,36 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="billing_name">Name</label>
+                        <label class="light-text-color" for="billing_name">Name</label>
                         <input type="text" class="form-control" id="billing_name" name="billing_name" value="{{ old('billing_name') }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="gst_number">GST Number <small>(Optional)</small></label>
+                        <label class="light-text-color" for="gst_number">GST Number <small>(Optional)</small></label>
                         <input type="text" class="form-control" id="gst_number" name="gst_number" value="{{ old('gst_number') }}">
                     </div>
                     <div class="form-group">
-                        <label for="billing_address">Address</label>
+                        <label class="light-text-color" for="billing_address">Address</label>
                         <input type="text" class="form-control" id="billing_address" name="billing_address" value="{{ old('billing_address') }}" required>
                     </div>
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="billing_city">City</label>
+                            <label class="light-text-color" for="billing_city">City</label>
                             <input type="text" class="form-control" id="billing_city" name="billing_city" value="{{ old('billing_city') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="billing_province">State/Province</label>
+                            <label class="light-text-color" for="billing_province">State/Province</label>
                             <input type="text" class="form-control" id="billing_province" name="billing_province" value="{{ old('billing_province') }}" required>
                         </div>
                     </div> <!-- end half-form -->
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="billing_postalcode">Postal Code</label>
+                            <label class="light-text-color" for="billing_postalcode">Postal Code</label>
                             <input type="text" class="form-control" id="billing_postalcode" name="billing_postalcode" value="{{ old('billing_postalcode') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="billing_phone">Phone</label>
+                            <label class="light-text-color" for="billing_phone">Phone</label>
                             <input type="text" class="form-control" id="billing_phone" name="billing_phone" value="{{ old('billing_phone') }}" required>
                         </div>
                     </div> <!-- end half-form -->
@@ -90,7 +90,7 @@
                     <div class="mt-32">
 
                         <div>
-                            <input type="checkbox" class="" id="billing_shipping_check" name="billing_shipping_check" onclick="SetBilling(this.checked);" @if(!request()->has('billing_shipping_check') || old('billing_shipping_check')) checked="checked" @endif> Is your billing address same as your shipping address?
+                            <input type="checkbox" class="" id="billing_shipping_check" name="billing_shipping_check" onclick="SetBilling(this.checked);" @if(!request()->has('billing_shipping_check') || old('billing_shipping_check')) checked="checked" @endif> <label class="light-text-color">Is your billing address same as your shipping address?</label>
                         </div>
 
                         <div class="spacer"></div>
@@ -133,7 +133,7 @@
                             </div> <!-- end half-form -->
                         </div>
 
-                        <input id="cash_on_delivery_submit" name="cash_on_delivery_submit" class="button-primary full-width" type="submit" value="Cash on Delivery">
+                        <input id="cash_on_delivery_submit" name="cash_on_delivery_submit" class="button full-width" type="submit" value="Cash on Delivery">
 
                         @if(false)
 
@@ -189,7 +189,7 @@
 
 
             <div class="checkout-table-container">
-                <h2>Your Order</h2>
+                <h2 class="light-text-color">Your Order</h2>
 
                 <div class="checkout-table">
                     @foreach (Cart::content() as $item)
