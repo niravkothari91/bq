@@ -32,7 +32,7 @@
         @endif
     </div>
 
-    <div class="products-section container">
+    <div class="products-section container @if($subcategory && $subcategory->productCategories && count($subcategory->productCategories) > 0) split-columns @endif">
         <div class="sidebar">
             @if($subcategory && $subcategory->productCategories && count($subcategory->productCategories) > 0)
             <h3 class="stylish-heading">By Category</h3>
