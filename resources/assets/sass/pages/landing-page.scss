@@ -7,7 +7,7 @@
 
     .products {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 48% auto !important;
         grid-gap: 60px $gutter;
         text-align: center;
 
