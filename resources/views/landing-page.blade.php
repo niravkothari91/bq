@@ -3,7 +3,7 @@
         <div id="app">
             <div class="home-page-carousel">
                 @foreach($carouselImages as $image)
-                    <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}"/></a>
+                    <a href="{{$image->page_link}}"><img src="{{asset('img/'.$image->url)}}" height="457px"/></a>
                 @endforeach
             </div>
             <div class="featured-section">
