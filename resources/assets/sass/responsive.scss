@@ -37,6 +37,12 @@
         }
     }
 
+    .home-page-carousel {
+        .carousel-images {
+            height: auto;
+        }
+    }
+
     .featured-section {
         /*padding: 50px 0;*/
 
@@ -101,7 +107,7 @@
         }
 
         .products {
-            grid-template-columns: 1fr;
+            grid-template-columns: 48% auto !important;
         }
     }
 
