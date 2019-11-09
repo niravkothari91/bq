@@ -1,9 +1,20 @@
 .might-like-section {
-    padding: 40px 0 70px;
-    background: $light-gray-background;
+
+    /* border: 1px solid #cc9e38; */
+    border-radius: 12px;
+    background: #343a40;
+    /* border-bottom: 3px solid #cc9e38; */
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.54);
+    box-shadow: 10px 10px 20px 0px rgb(0, 0, 0);
+
+    .container {
+        padding: 40px 0 70px;
+    }
 
     h2 {
         padding-bottom: 30px;
+        color: $gold-background;
     }
 
     .might-like-grid {
