@@ -2,7 +2,16 @@
     min-height: 500px;
     margin: 20px auto;
 
-    .products {
+    h1 {
+        color: $text-color-light;
+    }
+
+    .search-results-count {
+        color: $text-color-light;
+        margin-bottom: 20px;
+    }
+
+    /*.products {
         padding-top: 15px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -10,6 +19,31 @@
 
         .product-price {
             color: $text-color-light;
+        }
+    }*/
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 60px $gutter;
+
+        .product {
+            border: 2px solid $gold-background;
+            padding: 5px;
+
+            img {
+                max-width: 98%;
+                max-height: 98%;
+            }
+
+            .product-image-container {
+                width: 100%;
+                height: 330px;
+            }
+
+            .product-price {
+                color: $text-color-light !important;
+            }
         }
     }
 
@@ -22,8 +56,4 @@
     }*/
 
 
-}
-
-.search-results-count {
-    margin-bottom: 20px;
 }
