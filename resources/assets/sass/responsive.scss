@@ -41,6 +41,18 @@
         width: 169px !important;
     }
 
+    .features-description {
+        display:block;
+
+        .features-logo-container {
+            margin-bottom: 60px;
+
+            .features-logo-image {
+                width:200px;
+            }
+        }
+    }
+
     .home-page-carousel {
         .carousel-images {
             height: auto;

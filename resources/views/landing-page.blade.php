@@ -9,9 +9,56 @@
             <div class="featured-section">
 
                 <div class="container">
-                    {{--<h1 class="text-center">BarQualified</h1>
 
-                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>--}}
+                    <div class="features-description">
+                        <div class="features-logo-container center-contents"><img class="features-logo-image" src="{{asset('img/bq_logo.png')}}"></div>
+                        <div>
+                            <div class="feature-container">
+                                <div class="center-contents">
+                                    <div class="feature-icon-container center-contents">
+                                        <i class="fa fa-3x fa-usd"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Low Price Guarantee</h3>
+                                    <p>If you find one of our products on the internet for less, call us and we'll beat their price by 5%.</p>
+                                </div>
+                            </div>
+                            <div class="feature-container">
+                                <div class="center-contents">
+                                    <div class="feature-icon-container center-contents">
+                                        <i class="fa fa-3x fa-smile-o"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Satisfaction Guarantee</h3>
+                                    <p>Satisfaction Guaranteed on all of our products returned in original condition within 30 days for a refund or exchange.</p>
+                                </div>
+                            </div>
+                            <div class="feature-container">
+                                <div class="center-contents">
+                                    <div class="feature-icon-container center-contents">
+                                        <i class="fa fa-3x fa-star"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Outstanding Service</h3>
+                                    <p>We're here to help! We offer a top-notch friendly customer service team to all our customers.</p>
+                                </div>
+                            </div>
+                            <div class="feature-container">
+                                <div class="center-contents">
+                                    <div class="feature-icon-container center-contents">
+                                        <i class="fa fa-3x fa-credit-card"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Secured Payment</h3>
+                                    <p>When customers submit sensitive information via the website, such information is protected both online and offline.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="text-center button-container">
                         <a href="#" class="button">Featured</a>

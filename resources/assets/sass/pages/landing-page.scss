@@ -4,8 +4,43 @@
 
 .home-page-carousel {
     .carousel-images {
-        height: 457px;
+        height: 80vh;
     }
+}
+
+.features-description {
+    padding: 60px 0px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 60px 42px;
+    color: $text-color-light;
+    border-top: 1px solid #cc9e37;
+    border-bottom: 1px solid #cc9e37;
+
+    .feature-container {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-gap: $gutter;
+        padding-bottom: 20px;
+
+        .feature-icon-container {
+            background: $gray-background;
+            color: $gold-background;
+            border-radius: 52px;
+            width: 90px;
+            height: 90px;
+        }
+
+        h3 {
+            color: $gold-background;
+        }
+    }
+}
+
+.center-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .featured-section {
