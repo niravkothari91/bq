@@ -3,9 +3,12 @@
     @include('partials.banner')
 
     <nav class="navbar navbar-expand navbar-dark nav-bg justify-content-between">
-        <a class="navbar-brand" href="{{route('landing-page')}}" style="color:white !important;">
-            <img src="{{asset('img/bq_logo.png')}}" width="60" height="60" alt="">
-            BarQualified
+        <a class="navbar-brand" href="{{route('landing-page')}}">
+            <img class="company-logo" src="{{asset('img/bq_logo_name.png')}}" alt="BarQualified Logo">
+            {{--<div style="display:inline-block">
+            <span style="color:white !important;font-weight: bolder;font-size: 22px;">BarQualified</span>
+            <span style="display:block;font-size:15px">It's right in the name!</span>
+            </div>--}}
         </a>
         <div class="navbar mr-sm-2">
             @include('partials.menus.main-right')
