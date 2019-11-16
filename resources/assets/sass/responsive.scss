@@ -55,7 +55,7 @@
 
     .home-page-carousel {
         .carousel-images {
-            height: auto;
+            height: calc(100vh - 270px);
         }
     }
 
