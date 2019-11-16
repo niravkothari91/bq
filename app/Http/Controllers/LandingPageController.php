@@ -15,7 +15,7 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        $products = Product::where('featured', true)->take(8)->inRandomOrder()->get();
+        $products = Product::where('featured', true)->take(16)->inRandomOrder()->get();
         $carouselImages = CarouselImages::where('is_active', true)->orderBy('order')->get();
         return view('landing-page')->with(['products' => $products, 'carouselImages' => $carouselImages]);
     }
