@@ -73,7 +73,8 @@
         /*padding: 50px 0;*/
 
         .products {
-            grid-template-columns: 48% auto !important;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 20px;
         }
     }
 
@@ -133,7 +134,8 @@
         }
 
         .products {
-            grid-template-columns: 48% auto !important;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 20px;
         }
     }
 
