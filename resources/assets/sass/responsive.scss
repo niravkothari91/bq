@@ -41,6 +41,12 @@
         width: 169px !important;
     }
 
+
+    .features-logo-container {
+        width: 300px;
+        margin: 80px auto;
+    }
+
     .features-description {
         display:block;
 
@@ -50,6 +56,10 @@
             .features-logo-image {
                 width:200px;
             }
+        }
+
+        .feature-description-container {
+            padding: 0px 30px;
         }
     }
 

@@ -8,31 +8,41 @@
     }
 }
 
+.features-logo-container {
+    width: 400px;
+    margin: 80px auto;
+}
+
 .features-description {
     padding: 60px 0px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 60px 42px;
     color: $text-color-light;
     border-top: 1px solid #cc9e37;
     border-bottom: 1px solid #cc9e37;
 
     .feature-container {
-        display: grid;
+        /*display: grid;
         grid-template-columns: 1fr 4fr;
-        grid-gap: $gutter;
+        grid-gap: $gutter;*/
         padding-bottom: 20px;
 
-        .feature-icon-container {
-            background: $gray-background;
-            color: $gold-background;
-            border-radius: 52px;
-            width: 90px;
-            height: 90px;
+        .feature-icon-parent {
+            margin: 20px auto;
+
+            .feature-icon-container {
+                background: $gray-background;
+                color: $gold-background;
+                border-radius: 52px;
+                width: 90px;
+                height: 90px;
+            }
         }
 
         h3 {
             color: $gold-background;
+            font-size: 24px;
         }
     }
 }

@@ -8,57 +8,11 @@
             </div>
             <div class="featured-section">
 
-                <div class="container">
+                <div class="features-logo-container center-contents">
+                    <img class="features-logo-image" src="{{asset('img/bq_logo.png')}}">
+                </div>
 
-                    <div class="features-description">
-                        <div class="features-logo-container center-contents"><img class="features-logo-image" src="{{asset('img/bq_logo.png')}}"></div>
-                        <div>
-                            <div class="feature-container">
-                                <div class="center-contents">
-                                    <div class="feature-icon-container center-contents">
-                                        <i class="fa fa-3x fa-usd"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3>Low Price Guarantee</h3>
-                                    <p>If you find one of our products on the internet for less, call us and we'll beat their price by 5%.</p>
-                                </div>
-                            </div>
-                            <div class="feature-container">
-                                <div class="center-contents">
-                                    <div class="feature-icon-container center-contents">
-                                        <i class="fa fa-3x fa-smile-o"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3>Satisfaction Guarantee</h3>
-                                    <p>Satisfaction Guaranteed on all of our products returned in original condition within 30 days for a refund or exchange.</p>
-                                </div>
-                            </div>
-                            <div class="feature-container">
-                                <div class="center-contents">
-                                    <div class="feature-icon-container center-contents">
-                                        <i class="fa fa-3x fa-star"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3>Outstanding Service</h3>
-                                    <p>We're here to help! We offer a top-notch friendly customer service team to all our customers.</p>
-                                </div>
-                            </div>
-                            <div class="feature-container">
-                                <div class="center-contents">
-                                    <div class="feature-icon-container center-contents">
-                                        <i class="fa fa-3x fa-credit-card"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3>Secured Payment</h3>
-                                    <p>When customers submit sensitive information via the website, such information is protected both online and offline.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container">
 
                     <div class="text-center button-container">
                         <a href="#" class="button">Featured</a>
@@ -87,6 +41,53 @@
 
                     <div class="text-center button-container">
                         <a href="{{ route('shop.index') }}" class="button">View more products</a>
+                    </div>
+
+                    <div class="features-description">
+                        <div class="feature-container">
+                            <div class="feature-icon-parent center-contents">
+                                <div class="feature-icon-container center-contents">
+                                    <i class="fa fa-3x fa-usd"></i>
+                                </div>
+                            </div>
+                            <div class="feature-description-container">
+                                <h3>Low Price Guarantee</h3>
+                                <p>If you find one of our products on the internet for less, call us and we'll beat their price by 5%.</p>
+                            </div>
+                        </div>
+                        <div class="feature-container">
+                            <div class="feature-icon-parent center-contents">
+                                <div class="feature-icon-container center-contents">
+                                    <i class="fa fa-3x fa-smile-o"></i>
+                                </div>
+                            </div>
+                            <div class="feature-description-container">
+                                <h3>Satisfaction Guarantee</h3>
+                                <p>Satisfaction Guaranteed on all of our products returned in original condition within 30 days for a refund or exchange.</p>
+                            </div>
+                        </div>
+                        <div class="feature-container">
+                            <div class="feature-icon-parent center-contents">
+                                <div class="feature-icon-container center-contents">
+                                    <i class="fa fa-3x fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="feature-description-container">
+                                <h3>Outstanding Service</h3>
+                                <p>We're here to help! We offer a top-notch friendly customer service team to all our customers.</p>
+                            </div>
+                        </div>
+                        <div class="feature-container">
+                            <div class="feature-icon-parent center-contents">
+                                <div class="feature-icon-container center-contents">
+                                    <i class="fa fa-3x fa-credit-card"></i>
+                                </div>
+                            </div>
+                            <div class="feature-description-container">
+                                <h3>Secured Payment</h3>
+                                <p>When customers submit sensitive information via the website, such information is protected both online and offline.</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div> <!-- end container -->
