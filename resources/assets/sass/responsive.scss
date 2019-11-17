@@ -69,13 +69,9 @@
         }
     }
 
-    .featured-section {
-        /*padding: 50px 0;*/
-
-        .products {
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 40px 20px;
-        }
+    .products {
+        grid-template-columns: 1fr 1fr !important;
+        grid-gap: 40px 20px !important;
     }
 
     .products-header {
@@ -131,11 +127,6 @@
 
         .sidebar {
             text-align: center;
-        }
-
-        .products {
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 40px 20px;
         }
     }
 
