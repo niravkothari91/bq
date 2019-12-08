@@ -35,6 +35,22 @@
               margin-top: 40px;
             }
         }
+
+        .navbar {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: 0 1rem !important;
+        }
     }
 
     .company-logo {
@@ -44,7 +60,7 @@
 
     .features-logo-container {
         width: 300px;
-        margin: 80px auto;
+        margin: 30px auto;
     }
 
     .features-description {

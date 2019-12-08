@@ -47,12 +47,12 @@
                         <div class="feature-container">
                             <div class="feature-icon-parent center-contents">
                                 <div class="feature-icon-container center-contents">
-                                    <i class="fa fa-3x fa-usd"></i>
+                                    <i class="fa fa-3x fa-inr"></i>
                                 </div>
                             </div>
                             <div class="feature-description-container">
                                 <h3>Low Price Guarantee</h3>
-                                <p>If you find one of our products on the internet for less, call us and we'll beat their price by 5%.</p>
+                                <p>If you find one of our products on the internet for less, call us and we'll beat their price.</p>
                             </div>
                         </div>
                         <div class="feature-container">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="feature-description-container">
                                 <h3>Satisfaction Guarantee</h3>
-                                <p>Satisfaction Guaranteed on all of our products returned in original condition within 30 days for a refund or exchange.</p>
+                                <p>Satisfaction Guaranteed on all of our products returned in original condition within 7 days for a refund or exchange.</p>
                             </div>
                         </div>
                         <div class="feature-container">
