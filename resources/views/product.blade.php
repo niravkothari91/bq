@@ -16,15 +16,15 @@
         <span>{{ $product->name }}</span>
     @endcomponent
 
-    <div class="container">
+    <div class="flash-container container">
         @if (session()->has('success_message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show">
                 {{ session()->get('success_message') }}
             </div>
         @endif
 
         @if(count($errors) > 0)
-            <div class="alert alert-danger">
+            <div class="alert alert-danger alert-dismissible fade show">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

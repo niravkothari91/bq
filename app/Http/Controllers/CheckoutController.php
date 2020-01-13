@@ -7,6 +7,7 @@ use App\Product;
 use App\OrderProduct;
 use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
