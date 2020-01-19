@@ -9,6 +9,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "ext-gd": "*",
         "algolia/algoliasearch-client-php": "^1.25",
         "braintree/braintree_php": "^3.36",
         "cartalyst/stripe-laravel": "^8.0",
@@ -19,8 +20,8 @@
         "laravel/tinker": "~1.0",
         "lavary/laravel-menu": "^1.7",
         "nicolaslopezj/searchable": "^1.9",
-        "tcg/voyager": "1.2.*",
-        "ext-gd": "*"
+        "softon/indipay": "^1.1",
+        "tcg/voyager": "1.2.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
