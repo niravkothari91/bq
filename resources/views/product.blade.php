@@ -16,7 +16,7 @@
         <span>{{ $product->name }}</span>
     @endcomponent
 
-    <div class="container">
+    <div class="flash-message-container container">
         @if (session()->has('success_message'))
             <div class="alert alert-success">
                 {{ session()->get('success_message') }}

@@ -40,13 +40,13 @@ class CartController extends Controller
         });
 
         if ($duplicates->isNotEmpty()) {
-            return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+            return redirect()->route('shop.show', $product->slug)->with('success_message', 'Item is already in your cart!');
         }
 
         Cart::add($product->id, $product->name, 1, $product->price)
             ->associate('App\Product');
 
-        return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
+        return redirect()->route('shop.show', $product->slug)->with('success_message', 'Item was added to your cart!');
     }
 
     /**
