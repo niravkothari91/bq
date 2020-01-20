@@ -21,6 +21,8 @@ Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::post('/paypal-checkout', 'CheckoutController@paypalCheckout')->name('checkout.paypal');
+Route::post('/cc-checkout', 'CheckoutController@ccavenueCheckout')->name('checkout.ccavenue');
+Route::post('/cc-response', 'CheckoutController@ccavenueProcess')->name('checkout.ccavenue.response');
 
 Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');
 

@@ -166,6 +166,23 @@
                     </div>
                 </form>
 
+                <div class="mt-32">or</div>
+                <div class="mt-32">
+                    <h2>Pay with Debit/Credit Card</h2>
+
+                    <form method="post" id="cc-payment-form" action="{{ route('checkout.ccavenue') }}">
+                        @csrf
+                        <section>
+                            <div class="bt-drop-in-wrapper">
+                                <div id="bt-dropin"></div>
+                            </div>
+                        </section>
+
+                        <input id="nonce" name="payment_method_nonce" type="hidden" />
+                        <button class="button-primary" type="submit"><span>Pay with Debit/Credit Card</span></button>
+                    </form>
+                </div>
+
                 @if(false)
                 <div class="mt-32">or</div>
                 <div class="mt-32">
