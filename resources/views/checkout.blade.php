@@ -35,13 +35,13 @@
             </div>
         @endif
 
-        <h1 class="checkout-heading stylish-heading">Checkout</h1>
+        <h1 class="checkout-heading stylish-heading txt-gold">Checkout</h1>
         <div class="checkout-section">
             <div>
                 <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
                     {{ csrf_field() }}
 
-                    <h2 class="light-text-color">Billing Details</h2>
+                    <h2 class="txt-gold">Billing Details</h2>
 
                     <div class="form-group">
                         <label class="light-text-color" for="email">Email Address</label>
@@ -166,9 +166,9 @@
                     </div>
                 </form>
 
-                <div class="mt-32">or</div>
+                <div class="mt-32 light-text-color">or</div>
                 <div class="mt-32">
-                    <h2>Pay with Debit/Credit Card</h2>
+                    {{--<h2>Pay with Debit/Credit Card</h2>--}}
 
                     <form method="post" id="cc-payment-form" action="{{ route('checkout.ccavenue') }}">
                         @csrf
@@ -179,7 +179,7 @@
                         </section>
 
                         <input id="nonce" name="payment_method_nonce" type="hidden" />
-                        <button class="button-primary" type="submit"><span>Pay with Debit/Credit Card</span></button>
+                        <button class="button full-width" type="submit"><span>Pay with Debit/Credit Card</span></button>
                     </form>
                 </div>
 
@@ -206,7 +206,7 @@
 
 
             <div class="checkout-table-container">
-                <h2 class="light-text-color">Your Order</h2>
+                <h2 class="txt-gold">Your Order</h2>
 
                 <div class="checkout-table">
                     @foreach (Cart::content() as $item)
@@ -238,7 +238,7 @@
                             New Subtotal <br>
                         @endif
                         @if(config('cart.tax') > 0) Tax ({{config('cart.tax')}}%)<br> @endif
-                        <span class="checkout-totals-total">Total</span>
+                        <span class="checkout-totals-total txt-gold">Total</span>
 
                     </div>
 
@@ -250,7 +250,7 @@
                             {{ presentPrice($newSubtotal) }} <br>
                         @endif
                         @if(config('cart.tax') > 0) {{ presentPrice($newTax) }} <br> @endif
-                        <span class="checkout-totals-total">{{ presentPrice($newTotal) }}</span>
+                        <span class="checkout-totals-total txt-gold">{{ presentPrice($newTotal) }}</span>
 
                     </div>
                 </div> <!-- end checkout-totals -->
