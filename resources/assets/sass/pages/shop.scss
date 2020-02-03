@@ -32,6 +32,10 @@
     }
 }
 
+.sort-text {
+    font-size: 14px;
+}
+
 .split-columns {
     grid-template-columns: 1fr 3fr;
 }
@@ -43,6 +47,7 @@
 .products-header {
     display: flex;
     justify-content: space-between;
+    color: $text-color-light;
 }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
@@ -35,6 +36,9 @@ class CartController extends Controller
      */
     public function store(Product $product)
     {
+        if(Auth::guest()) {
+            return redirect()->route('login')->with('success_message', 'Please login before adding anything to your cart');
+        }
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($product) {
             return $cartItem->id === $product->id;
         });

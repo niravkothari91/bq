@@ -3,13 +3,13 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('register') }}">
             {{----}}
-            <span class="navbar-text">Sign Up</span>
+            <span class="navbar-text txt-gold">Sign Up</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('login') }}">
             {{--<span class="navbar-text d-none d-lg-block">Login</span>--}}
-            <span class="navbar-text">Login</span>
+            <span class="navbar-text txt-gold">Login</span>
         </a>
     </li>
     @else

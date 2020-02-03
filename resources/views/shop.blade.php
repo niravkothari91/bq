@@ -63,14 +63,14 @@
                 <div>
                     <strong class="stylish-heading">Price: </strong>
                     @if(request()->subcategory)
-                        <a href="{{ route('shop.index', ['subcategory'=> request()->subcategory, 'sort' => 'low_high']) }}">Low to High</a> |
-                        <a href="{{ route('shop.index', ['subcategory'=> request()->subcategory, 'sort' => 'high_low']) }}">High to Low</a>
+                        <a class="sort-text" href="{{ route('shop.index', ['subcategory'=> request()->subcategory, 'sort' => 'low_high']) }}">Low to High</a> |
+                        <a class="sort-text" href="{{ route('shop.index', ['subcategory'=> request()->subcategory, 'sort' => 'high_low']) }}">High to Low</a>
                     @elseif(request()->productcategory)
-                        <a href="{{ route('shop.index', ['productcategory'=> request()->productcategory, 'sort' => 'low_high']) }}">Low to High</a> |
-                        <a href="{{ route('shop.index', ['productcategory'=> request()->productcategory, 'sort' => 'high_low']) }}">High to Low</a>
+                        <a class="sort-text" href="{{ route('shop.index', ['productcategory'=> request()->productcategory, 'sort' => 'low_high']) }}">Low to High</a> |
+                        <a class="sort-text" href="{{ route('shop.index', ['productcategory'=> request()->productcategory, 'sort' => 'high_low']) }}">High to Low</a>
                     @else
-                        <a href="{{ route('shop.index', ['sort' => 'low_high']) }}">Low to High</a> |
-                        <a href="{{ route('shop.index', ['sort' => 'high_low']) }}">High to Low</a>
+                        <a class="sort-text" href="{{ route('shop.index', ['sort' => 'low_high']) }}">Low to High</a> |
+                        <a class="sort-text" href="{{ route('shop.index', ['sort' => 'high_low']) }}">High to Low</a>
                     @endif
                 </div>
             </div>
@@ -83,7 +83,7 @@
                         <div class="product-price">{{ $product->presentPrice() }}</div>
                     </div>
                 @empty
-                    <div style="text-align: left">No items found</div>
+                    <div class="light-text-color" style="text-align: left">No items found</div>
                 @endforelse
             </div> <!-- end products -->
 

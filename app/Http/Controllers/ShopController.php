@@ -33,7 +33,7 @@ class ShopController extends Controller
                 });
                 $categoryName = $subcategory->name;
             } else {
-                return Redirect::to("/");
+                return Redirect::route("landing-page");
             }
         } else if(request()->productcategory) {
             $productCategory = Productcategory::bySlug(request()->productcategory)->first();
