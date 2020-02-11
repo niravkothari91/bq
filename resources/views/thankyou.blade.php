@@ -10,7 +10,7 @@
 
 @section('content')
 
-   <div class="thank-you-section">
+   <div class="thank-you-section light-text-color">
        @if(session()->has('success_message'))
            <h1>Thank you for <br> Your Order!</h1>
            <p>A confirmation email was sent</p>
