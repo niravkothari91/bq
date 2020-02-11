@@ -6,6 +6,7 @@ use App\Order;
 use App\Product;
 use App\OrderProduct;
 use App\Mail\OrderPlaced;
+use App\Transaction;
 use Appnings\Payment\Facades\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -131,36 +132,42 @@ class CheckoutController extends Controller
 
         // For default Gateway
         $response = Payment::response($request);
+        if ($response) {
 
-        dd($response);
+            $transaction = Transaction::create($response);
+            $response = collect($response);
 
-        /*if ($result->success) {
-            $order = $this->addToOrdersTablesPaypal(
-                $request,
-                $transaction->paypal['payerEmail'],
-                $transaction->paypal['payerFirstName'].' '.$transaction->paypal['payerLastName'],
-                null
-            );
+            if ($response->order_status == "Success") {
+                list($success, $order, $message) = $this->updateOrderInOrdersTablesCCAvenue(
+                    $response,
+                    null
+                );
 
-            Mail::send(new OrderPlaced($order));
+                if($success) {
+                    Mail::send(new OrderPlaced($order));
 
-            // decrease the quantities of all the products in the cart
-            $this->decreaseQuantities();
+                    // decrease the quantities of all the products in the cart
+                    $this->decreaseQuantities();
 
-            Cart::instance('default')->destroy();
-            session()->forget('coupon');
+                    Cart::instance('default')->destroy();
+                    session()->forget('coupon');
 
-            return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
+                    return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
+                } else {
+                    return redirect()->route('confirmation.index')->with('error_message', 'An internal error occurred with the message: '.$message.', Tracking ID: '.$response->tracking_id.', Bank Ref No: '.$response->bank_ref_no);
+                }
+
+            } else {
+                list($success, $order, $message) = $this->updateOrderInOrdersTablesCCAvenue(
+                    $response,
+                    $response->failure_message
+                );
+                return redirect()->route('confirmation.index')->with('error_message', 'An error occurred while attempting to process payment with the message: '.$response->failure_message.', Tracking ID: '.$response->tracking_id.', Bank Ref No: '.$response->bank_ref_no);
+            }
         } else {
-            $order = $this->addToOrdersTablesPaypal(
-                $request,
-                $transaction->paypal['payerEmail'],
-                $transaction->paypal['payerFirstName'].' '.$transaction->paypal['payerLastName'],
-                $result->message
-            );
-
-            return back()->withErrors('An error occurred with the message: '.$result->message);
-        }*/
+            //This is a serious problem. Ideally, this else should never be executed
+            return redirect()->route('confirmation.index')->with('error_message', "Woah Woah Woah! How'd you end up here? Call me and tell me what you did exactly!");
+        }
     }
 
     /**
@@ -323,6 +330,55 @@ class CheckoutController extends Controller
         }
 
         return $order;
+    }
+
+    protected function updateOrderInOrdersTablesCCAvenue($response, $error = null)
+    {
+        $tmpOrder = Order::find($response->order_id);
+        if($tmpOrder) {
+            $result = $tmpOrder->update([
+                'billing_email' => $response->billing_email,
+                'billing_name' => $response->billing_name,
+                //'gst_number' => $request->gst_number,
+                'billing_address' => $response->billing_address,
+                'billing_city' => $response->billing_city,
+                'billing_province' => $response->billing_state,
+                'billing_postalcode' => $response->billing_zip,
+                'billing_phone' => $response->billing_tel,
+                'shipping_name' => $response->delivery_name,
+                'shipping_address' => $response->delivery_address,
+                'shipping_city' => $response->delivery_city,
+                'shipping_province' => $response->delivery_state,
+                'shipping_postalcode' => $response->delivery_zip,
+                'shipping_phone' => $response->delivery_tel,
+                'billing_name_on_card' => $response->card_name,
+                'payment_gateway' => 'CCAvenue ('.$response->payment_mode.')',
+                'error' => $error,
+            ]);
+
+            // Insert into order_product table
+            foreach (Cart::content() as $item) {
+                OrderProduct::create([
+                    'order_id' => $response->order_id,
+                    'product_id' => $item->model->id,
+                    'quantity' => $item->qty,
+                ]);
+            }
+
+            if ($result) {
+                return [
+                    'success' => true,
+                    'order' => $tmpOrder,
+                    'message' => 'Order updated successfully!'
+                ];
+            }
+        }
+
+        return [
+            'success' => false,
+            'order' => null,
+            'message' => 'Unable to find order #'.$response->order_id.'. Please contact customer support for help.'
+        ];
     }
 
     protected function decreaseQuantities()
