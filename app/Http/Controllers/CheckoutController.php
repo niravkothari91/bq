@@ -125,29 +125,16 @@ class CheckoutController extends Controller
         } else {
             return back()->withErrors('Sorry! We encountered an issue processing your order. Please try again later or contact support.');
         }
-        
+    }
 
+    public function ccavenueProcess(Request $request) {
 
-        /*$gateway = new \Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
+        // For default Gateway
+        $response = Payment::response($request);
 
-        $nonce = $request->payment_method_nonce;
+        dd($response);
 
-        $result = $gateway->transaction()->sale([
-            'amount' => round(getNumbers()->get('newTotal') / 100, 2),
-            'paymentMethodNonce' => $nonce,
-            'options' => [
-                'submitForSettlement' => true
-            ]
-        ]);
-
-        $transaction = $result->transaction;
-
-        if ($result->success) {
+        /*if ($result->success) {
             $order = $this->addToOrdersTablesPaypal(
                 $request,
                 $transaction->paypal['payerEmail'],
