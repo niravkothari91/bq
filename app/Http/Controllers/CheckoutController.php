@@ -366,17 +366,17 @@ class CheckoutController extends Controller
 
             if ($result) {
                 return [
-                    'success' => true,
-                    'order' => $tmpOrder,
-                    'message' => 'Order updated successfully!'
+                    true,
+                    $tmpOrder,
+                    'Order updated successfully!'
                 ];
             }
         }
 
         return [
-            'success' => false,
-            'order' => null,
-            'message' => 'Unable to find order #'.$response['order_id'].'. Please contact customer support for help.'
+            false,
+            null,
+            'Unable to find order #'.$response['order_id'].'. Please contact customer support for help.'
         ];
     }
 
