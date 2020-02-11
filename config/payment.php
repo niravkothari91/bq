@@ -29,7 +29,8 @@ return [
 
     // Add your response link here. In Laravel 5.* you may use the api middleware instead of this.
     'remove_csrf_check' => [
-        env('CCAVENUE_REDIRECT_URL', 'cc-response')
+        env('CCAVENUE_REDIRECT_URL', 'cc-response'),
+        env('CCAVENUE_CANCEL_URL', 'cc-cancel')
     ],
 
 ];
