@@ -23,7 +23,9 @@ Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::post('/paypal-checkout', 'CheckoutController@paypalCheckout')->name('checkout.paypal');
 Route::post('/cc-checkout', 'CheckoutController@ccavenueCheckout')->name('checkout.ccavenue');
 Route::post('/cc-response', 'CheckoutController@ccavenueProcess')->name('checkout.ccavenue.response');
-
+Route::any('/cc-cancel', function() {
+    return Redirect::route('checkout.index');
+});
 Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.index');
 
 Route::get('/about-us', 'StaticPageController@aboutUs')->name('aboutUs.index');

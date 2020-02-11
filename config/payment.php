@@ -20,8 +20,8 @@ return [
         'workingKey' => env('CCAVENUE_WORKING_KEY', ''),
 
         // Should be route address for url() function
-        'redirectUrl' => env('CCAVENUE_REDIRECT_URL', 'payment/success'),
-        'cancelUrl' => env('CCAVENUE_CANCEL_URL', 'payment/cancel'),
+        'redirectUrl' => env('CCAVENUE_REDIRECT_URL', 'cc-response'),
+        'cancelUrl' => env('CCAVENUE_CANCEL_URL', 'cc-cancel'),
 
         'currency' => env('CCAVENUE_CURRENCY', 'INR'),
         'language' => env('CCAVENUE_LANGUAGE', 'EN'),
@@ -29,7 +29,7 @@ return [
 
     // Add your response link here. In Laravel 5.* you may use the api middleware instead of this.
     'remove_csrf_check' => [
-        'cc-response',
+        env('CCAVENUE_REDIRECT_URL', 'cc-response')
     ],
 
 ];
