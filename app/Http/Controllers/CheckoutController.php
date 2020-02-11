@@ -8,6 +8,7 @@ use App\OrderProduct;
 use App\Mail\OrderPlaced;
 use Appnings\Payment\Facades\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CheckoutRequest;
@@ -107,21 +108,25 @@ class CheckoutController extends Controller
     {
         // Check race condition when there are less items available to purchase
         if ($this->productsAreNoLongerAvailable()) {
-            return back()->withErrors('Sorry! One of the items in your cart is no longer avialble.');
+            return back()->withErrors('Sorry! One of the items in your cart is no longer available.');
+        }
+
+        $tmpOrder = $this->addTempOrderToOrdersTablesCCAvenue();
+
+        if($tmpOrder) {
+            $parameters = [
+                'tid' => Carbon::now()->getTimestamp(),
+                'order_id' => $tmpOrder->id,
+                'amount' => $tmpOrder->billing_total,
+            ];
+
+            $order = Payment::prepare($parameters);
+            return Payment::process($order);
+        } else {
+            return back()->withErrors('Sorry! We encountered an issue processing your order. Please try again later or contact support.');
         }
         
-        $parameters = [
 
-            'tid' => '1233221223322',
-
-            'order_id' => '1232212',
-
-            'amount' => '1200.00',
-
-        ];
-
-        $order = Payment::prepare($parameters);
-        return Payment::process($order);
 
         /*$gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -294,6 +299,31 @@ class CheckoutController extends Controller
             'billing_total' => getNumbers()->get('newTotal'),
             'error' => $error,
             'payment_gateway' => 'paypal',
+        ]);
+
+        // Insert into order_product table
+        foreach (Cart::content() as $item) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item->model->id,
+                'quantity' => $item->qty,
+            ]);
+        }
+
+        return $order;
+    }
+
+    protected function addTempOrderToOrdersTablesCCAvenue()
+    {
+        // Insert into orders table
+        $order = Order::create([
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+            'billing_discount' => getNumbers()->get('discount'),
+            'billing_discount_code' => getNumbers()->get('code'),
+            'billing_subtotal' => getNumbers()->get('newSubtotal'),
+            'billing_tax' => getNumbers()->get('newTax'),
+            'billing_total' => getNumbers()->get('newTotal'),
+            'payment_gateway' => 'ccavenue',
         ]);
 
         // Insert into order_product table
