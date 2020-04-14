@@ -1,5 +1,5 @@
 @foreach($items as $item)
-    <li class="nav-item @if($item->hasChildren()) dropdown @endif" onmouseenter="openMenu(this)" onmouseleave="openMenu(this)">
+    <li class="nav-item @if($item->hasChildren()) dropdown @endif">
         @if($item->hasChildren())
             <a class="nav-link dropdown-toggle" href="#" id="{!! $item->id !!}_dd" @if($item->hasChildren()) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
                 {!! $item->title !!}
