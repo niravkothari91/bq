@@ -98,6 +98,11 @@ h1,
     margin-bottom: 3px;
 }
 
+
+.nav-item:hover > .dropdown-menu {
+    display: block;
+}
+
 /*Uncomment this if you want to display the menu on hover instead of click. (Needs some work though)*/
 /*
 @media (min-width: 979px) {

@@ -1,5 +1,5 @@
 @foreach($items as $item)
-    <li class="nav-item @if($item->hasChildren()) dropdown @endif">
+    <li class="nav-item @if($item->hasChildren()) dropdown @endif" onmouseenter="openMenu(this)" onmouseleave="openMenu(this)">
         @if($item->hasChildren())
             <a class="nav-link dropdown-toggle" href="#" id="{!! $item->id !!}_dd" @if($item->hasChildren()) data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @endif>
                 {!! $item->title !!}
@@ -59,3 +59,32 @@
         @endif
     </li>
 @endforeach--}}
+
+<script>
+    //Nav bar nav menu toggle on hover rather then click, comment to keep it on click
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
+ 
+$(window).on("load resize", function() {
+  if (this.matchMedia("(min-width: 768px)").matches) {
+    $dropdown.hover(
+      function() {
+        const $this = $(this);
+        $this.addClass(showClass);
+        $this.find($dropdownToggle).attr("aria-expanded", "true");
+        $this.find($dropdownMenu).addClass(showClass);
+      },
+      function() {
+        const $this = $(this);
+        $this.removeClass(showClass);
+        $this.find($dropdownToggle).attr("aria-expanded", "false");
+        $this.find($dropdownMenu).removeClass(showClass);
+      }
+    );
+  } else {
+    $dropdown.off("mouseenter mouseleave");
+  }
+});
+</script>

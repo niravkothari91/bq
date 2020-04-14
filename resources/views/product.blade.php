@@ -4,6 +4,11 @@
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
+    <style>
+        .container {
+            padding-top:0px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -105,5 +110,21 @@
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script src="{{ asset('js/algolia.js') }}"></script>
+
+<script>
+$(window).on("load resize", function() {
+  if (this.matchMedia("(max-width: 768px)").matches) {
+    $('.product-section').removeClass('product-section');
+  } 
+  else
+  {
+    var pCont = $('.product-section-image').parents('.container');
+    if(!pCont.hasClass('product-section'))
+    {
+        pCont.addClass('product-section');
+    }
+  }
+});
+</script>
 
 @endsection
