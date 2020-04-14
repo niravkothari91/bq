@@ -15,7 +15,7 @@
         </div>
     </nav>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark justify-content-between">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" id="navBtnExpand">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -28,3 +28,10 @@
         </div>
     </nav><!--/nav-->
 </header>
+<script>
+$(document).ready(function(){
+    $('#navBtnExpand').click(function(){
+        $('#navbarNavDropdown').slideToggle('slow');
+    });
+});
+</script>
