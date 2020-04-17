@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <div class="auth-pages">
+    <div class="auth-pages p-5 mt-5" style="background: #f8f8f8; border-radius: 5px;">
         <div>
             @if (session()->has('success_message'))
             <div class="alert alert-success">
@@ -19,8 +19,7 @@
                 </ul>
             </div>
             @endif
-            <h2 class="light-text-color">Create Account</h2>
-            <div class="spacer"></div>
+            <h2 class="light-text-color mb-5">Create Account</h2>
 
             <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}

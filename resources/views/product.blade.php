@@ -59,16 +59,14 @@
             </div>
         </div>
         <div class="product-section-information">
-            <h1 class="product-section-title">{{ $product->name }}</h1>
+            <h4 class="text-warning">{{ $product->name }}</h4>
             <div class="product-section-subtitle">{{ $product->details }}</div>
             <div>{!! $stockLevel !!}</div>
             <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
-            <p class="product-section-description">
+            <p class="text-warning">
                 {!! $product->description !!}
             </p>
-
-            <p>&nbsp;</p>
 
             @if ($product->quantity > 0)
                 <form action="{{ route('cart.store', $product) }}" method="POST">

@@ -36,7 +36,6 @@
                                 <div class="product-price">{{ $product->presentPrice() }}</div>
                             </div>
                         @endforeach
-
                     </div> <!-- end products -->
 
                     <div class="text-center button-container">

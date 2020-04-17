@@ -2,7 +2,7 @@
 @section('title', 'Reset Password')
 @section('content')
 <div class="container">
-    <div class="auth-pages">
+    <div class="auth-pages p-5 mt-5" style="background: #f8f8f8; border-radius: 5px;">
         <div class="auth-left">
             @if (session()->has('status'))
             <div class="alert alert-success">
