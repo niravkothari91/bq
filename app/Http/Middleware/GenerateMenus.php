@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Category;
 use App\Subcategory;
 use Closure;
-use Lavary\Menu\Menu;
+
 
 class GenerateMenus
 {
@@ -20,8 +20,7 @@ class GenerateMenus
     {
         $parentCategories = Category::all();
         if($parentCategories != null && $parentCategories->count() > 0) {
-            $navbar = new Menu();
-            $navbar->make('MyNavBar', function ($menu) use ($parentCategories) {
+            \Menu::make('MyNavBar', function ($menu) use ($parentCategories) {
                 foreach($parentCategories as $category_item) {
                     $parent = $menu->add($category_item->name, ['url' => '#']);
                     $subcategories = Subcategory::byParentId($category_item->id)->get();
