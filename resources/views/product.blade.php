@@ -60,11 +60,15 @@
         </div>
         <div class="product-section-information">
             <h4 class="text-warning">{{ $product->name }}</h4>
-            <div class="product-section-subtitle">{{ $product->details }}</div>
+            <div class="product-section-subtitle">
+                <b>SKU:</b>
+                <u>{{$product->sku}}</u>
+            </div>
             <div>{!! $stockLevel !!}</div>
             <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
             <p class="text-warning">
+                {{ $product->details }}
                 {!! $product->description !!}
             </p>
 
