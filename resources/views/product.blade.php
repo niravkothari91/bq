@@ -73,8 +73,29 @@
             </p>
 
             @if ($product->quantity > 0)
+                <hr>
+
                 <form action="{{ route('cart.store', $product) }}" method="POST">
                     {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <label for="quantity" class="text-warning">Quantity</label>
+                        <select name="quantity" id="quantity" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+
+                    <br>
+
                     <button type="submit" class="button button-plain">Add to Cart</button>
                 </form>
             @endif

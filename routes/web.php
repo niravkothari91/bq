@@ -18,7 +18,7 @@ Route::post('/saveForLater/switchToCart/{product}', 'SaveForLaterController@swit
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware(['auth','verified']);
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::post('/paypal-checkout', 'CheckoutController@paypalCheckout')->name('checkout.paypal');
 Route::post('/cc-checkout', 'CheckoutController@ccavenueCheckout')->name('checkout.ccavenue');
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -49,7 +49,7 @@ Route::get('/search', 'ShopController@search')->name('search');
 
 Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('search-algolia');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/my-profile', 'UsersController@edit')->name('users.edit');
     Route::patch('/my-profile', 'UsersController@update')->name('users.update');
 

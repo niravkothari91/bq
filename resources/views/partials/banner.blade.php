@@ -5,4 +5,5 @@
         <a class="banner-button" href="tel:+919723050101" target="_blank"><i class="fa fa-phone"></i>&nbsp;&nbsp;Call</a>&nbsp;
         <a class="banner-button" href="https://wa.me/919723050101?text=Hello!%20I%20am%20interested%20in%20one%20of%20your%20products" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;Chat</a>
     </span>
+
 </div>

@@ -110,7 +110,9 @@
                 pauseOnHover: true,
                 pauseOnFocus: true
             });
-            alert('Due to the Government Lockdown owing to COVID19 Pandemic. We won\'t be able to ship any products from our website.');
+            @if(\Illuminate\Support\Facades\App::environment() =='production')
+                alert('Due to the Government Lockdown owing to COVID19 Pandemic. We won\'t be able to ship any products from our website.');
+            @endif
         });
     </script>
     @endsection
